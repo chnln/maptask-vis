@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GMMT and SINS: perspectivist landmark annotations and vision-language evaluation of common ground in asymmetric MapTask dialogue."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://gmmt-vis.github.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GMMT × SINS" />
+    <meta property="og:title" content="Grounded Misunderstandings &amp; Seeing Is Not Sharing" />
+    <meta
+      property="og:description"
+      content="Two connected papers on perspectivist reference annotation and vision-language models' estimates of common ground."
+    />
+    <meta property="og:url" content="https://gmmt-vis.github.io/" />
+    <meta property="og:image" content="https://gmmt-vis.github.io/static/images/maps/map9g.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="citation_title" content="Grounded Misunderstandings in Asymmetric Dialogue: A Perspectivist Annotation Scheme for MapTask" />
+    <meta name="citation_author" content="Nan Li" />
+    <meta name="citation_author" content="Albert Gatt" />
+    <meta name="citation_author" content="Massimo Poesio" />
+    <meta name="citation_publication_date" content="2026/05" />
+    <meta name="citation_conference_title" content="LREC 2026" />
+    <meta name="citation_doi" content="10.63317/59anbt78wyj7" />
+    <meta name="citation_abstract_html_url" content="https://lrec.elra.info/lrec2026-main-392" />
+
+    <title>GMMT × SINS · Perspectivist Common Ground in MapTask</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='16' r='8' fill='none' stroke='%232057bc' stroke-width='2'/%3E%3Ccircle cx='20' cy='16' r='8' fill='none' stroke='%23d24e35' stroke-width='2'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ScholarlyArticle",
+            "headline": "Grounded Misunderstandings in Asymmetric Dialogue: A Perspectivist Annotation Scheme for MapTask",
+            "author": [
+              { "@type": "Person", "name": "Nan Li" },
+              { "@type": "Person", "name": "Albert Gatt" },
+              { "@type": "Person", "name": "Massimo Poesio" }
+            ],
+            "datePublished": "2026-05",
+            "isPartOf": { "@type": "PublicationEvent", "name": "LREC 2026" },
+            "url": "https://lrec.elra.info/lrec2026-main-392",
+            "sameAs": "https://doi.org/10.63317/59anbt78wyj7"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "headline": "Seeing Is Not Sharing: Some Vision-Language Models Overestimate Common Ground in Asymmetric Dialogue",
+            "author": [
+              { "@type": "Person", "name": "Nan Li" },
+              { "@type": "Person", "name": "Albert Gatt" },
+              { "@type": "Person", "name": "Massimo Poesio" }
+            ],
+            "datePublished": "2026-08",
+            "isPartOf": { "@type": "PublicationEvent", "name": "SIGDIAL 2026" },
+            "url": "https://aclanthology.org/2026.sigdial-1.49/"
+          },
+          {
+            "@type": "Dataset",
+            "name": "Grounded Misunderstandings in MapTask (GMMT)",
+            "creator": { "@type": "Organization", "name": "Utrecht University" },
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "url": "https://huggingface.co/datasets/chnln/grounded-misunderstandings-in-maptask"
+          }
+        ]
+      }
+    </script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#explorer">Skip to the interactive demo</a>
+
+    <header class="site-header">
+      <a class="site-mark" href="#top" aria-label="GMMT and SINS project home">
+        <span class="site-mark-symbol" aria-hidden="true"><i></i><i></i></span>
+        <span>GMMT <b>×</b> SINS</span>
+      </a>
+      <nav aria-label="Project navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#explorer">Demo</a>
+        <a href="#datasets">Datasets</a>
+        <a href="#publications">Papers</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="paper-hero page-width" aria-labelledby="project-title">
+        <p class="venue-line">
+          <span>LREC 2026</span>
+          <i aria-hidden="true">+</i>
+          <span>SIGDIAL 2026</span>
+        </p>
+        <h1 id="project-title">Grounded Misunderstandings<br /><em>&amp; Seeing Is Not Sharing</em></h1>
+        <p class="subtitle">Perspectivist reference annotation and vision–language evaluation of common ground in asymmetric dialogue</p>
+
+        <p class="authors">
+          <a href="https://github.com/chnln" target="_blank" rel="noreferrer">Nan Li</a>
+          <span>·</span>
+          <span>Albert Gatt</span>
+          <span>·</span>
+          <span>Massimo Poesio</span>
+        </p>
+        <p class="affiliation">Utrecht University · Institute for Language Sciences · ICS / NLP</p>
+
+        <div class="resource-buttons" aria-label="Project resources">
+          <a href="https://lrec.elra.info/lrec2026-main-392" target="_blank" rel="noreferrer">
+            <span class="resource-icon" aria-hidden="true">▤</span>
+            <span><b>GMMT Paper</b><small>LREC 2026</small></span>
+          </a>
+          <a href="https://aclanthology.org/2026.sigdial-1.49/" target="_blank" rel="noreferrer">
+            <span class="resource-icon" aria-hidden="true">▤</span>
+            <span><b>SINS Paper</b><small>SIGDIAL 2026</small></span>
+          </a>
+          <a href="#datasets">
+            <span class="resource-icon" aria-hidden="true">⌁</span>
+            <span><b>Data</b><small>GitHub + Hugging Face</small></span>
+          </a>
+          <a href="https://github.com/chnln" target="_blank" rel="noreferrer">
+            <span class="resource-icon code-icon" aria-hidden="true">&lt;/&gt;</span>
+            <span><b>Code</b><small>Open-source releases</small></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="teaser page-width" aria-label="Two real MapTask participant maps">
+        <div class="teaser-maps">
+          <figure>
+            <div class="teaser-image-wrap giver-accent">
+              <img src="./static/images/maps/map9g.png" alt="Map 9 as seen by the route giver" />
+              <span>Giver</span>
+            </div>
+            <figcaption>map9g · route giver's view</figcaption>
+          </figure>
+          <div class="teaser-question" aria-hidden="true">
+            <span>“the hot wells”</span>
+            <b>≠</b>
+            <span>“hot springs”</span>
+          </div>
+          <figure>
+            <div class="teaser-image-wrap follower-accent">
+              <img src="./static/images/maps/map9f.png" alt="Map 9 as seen by the route follower" />
+              <span>Follower</span>
+            </div>
+            <figcaption>map9f · route follower's view</figcaption>
+          </figure>
+        </div>
+        <p class="teaser-caption">
+          The participants share a task, not a view. GMMT records what each participant takes a referring expression to mean; SINS asks whether a model can tell when those interpretations diverge.
+        </p>
+      </section>
+
+      <section id="abstract" class="paper-section narrow-width" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <div class="abstract-grid">
+          <div>
+            <p>
+              Collaborative dialogue is often analysed as if each referring expression had one agreed referent. MapTask makes that assumption testable: a route giver and follower work from similar but non-identical maps, so the same words can resolve to different landmarks for each participant.
+            </p>
+            <p>
+              <strong>GMMT</strong> introduces a perspectivist annotation scheme that separately records the giver's intended landmark and the follower's interpreted landmark for every reference expression. <strong>SINS</strong> builds a controlled common-ground judgment task on those paired interpretations and evaluates whether vision–language models distinguish what participants <em>could</em> share from what they have actually established in dialogue.
+            </p>
+          </div>
+          <aside class="research-question">
+            <span>Research question</span>
+            <blockquote>Can a model see both maps without mistaking visual availability for shared understanding?</blockquote>
+          </aside>
+        </div>
+      </section>
+
+      <section class="stat-strip page-width" aria-label="GMMT corpus statistics">
+        <div><strong>13,077</strong><span>reference expressions</span></div>
+        <div><strong>128</strong><span>dialogues</span></div>
+        <div><strong>16</strong><span>map pairs</span></div>
+        <div><strong>2</strong><span>participant interpretations</span></div>
+      </section>
+
+      <section id="explorer" class="paper-section demo-section page-width" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <span class="section-number">Interactive demo</span>
+          <h2 id="explorer-title">One expression, two situated interpretations</h2>
+          <p>
+            Choose a released dialogue, read the surrounding excerpt, or click a landmark on either real HCRC MapTask map. The panels link the selected expression to participant-level GMMT annotations and the corresponding SINS model judgment.
+          </p>
+        </div>
+
+        <div class="explorer-frame">
+          <div class="explorer-toolbar">
+            <div class="map-switcher" role="group" aria-label="Choose map pair" id="map-switcher"></div>
+            <div class="annotation-control">
+              <span>Interpretation annotation</span>
+              <div class="segmented" role="group" aria-label="Choose annotation source">
+                <button type="button" data-source="human" class="is-active" aria-pressed="true">Human-verified</button>
+                <button type="button" data-source="gpt5" aria-pressed="false">GPT-5 annotation</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="explorer-grid">
+            <section class="maps-panel" aria-labelledby="map-panel-title">
+              <div class="panel-heading">
+                <div>
+                  <span class="panel-kicker">Map pair <b id="current-map-id">m9</b></span>
+                  <h3 id="map-panel-title">Real participant maps</h3>
+                </div>
+                <span class="map-source-badge">HCRC MapTask · click a landmark</span>
+              </div>
+
+              <div class="map-pair" id="map-pair"></div>
+
+              <div class="map-legend" aria-label="Map overlay legend">
+                <span><i class="legend-shared"></i> Giver interpretation</span>
+                <span><i class="legend-unique"></i> Follower interpretation</span>
+                <span><i class="legend-active"></i> Clickable hotspot</span>
+              </div>
+            </section>
+
+            <aside class="trace-panel" aria-labelledby="trace-title">
+              <div class="panel-heading trace-heading">
+                <div>
+                  <span class="panel-kicker">Dialogue <b id="current-dialogue-id">q1ec2</b></span>
+                  <h3 id="trace-title">Curated real dialogue excerpt</h3>
+                </div>
+                <span class="trace-count" id="trace-count">0 REs</span>
+              </div>
+
+              <div class="dialogue-excerpt" id="dialogue-excerpt" aria-live="polite">
+                <p class="excerpt-placeholder">Select a reference expression to reveal its local dialogue context.</p>
+              </div>
+
+              <div class="trace-divider">
+                <span>Reference expressions in this dialogue</span>
+              </div>
+
+              <div class="trace-tools">
+                <label class="search-field">
+                  <span class="sr-only">Search reference expressions</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" /></svg>
+                  <input id="trace-search" type="search" placeholder="Search expression or ID" />
+                </label>
+                <label class="status-field">
+                  <span class="sr-only">Filter by annotation status</span>
+                  <select id="status-filter">
+                    <option value="all">All states</option>
+                    <option value="misunderstood">Misunderstood</option>
+                    <option value="pending">Pending</option>
+                    <option value="aligned">Aligned</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="trace-list" id="trace-list" aria-live="polite"></div>
+            </aside>
+          </div>
+
+          <section class="detail-panel" aria-labelledby="detail-title" aria-live="polite">
+            <div class="detail-context">
+              <span class="detail-id" id="detail-id">q1ec2.ref.23</span>
+              <blockquote id="detail-expression">“the hot wells”</blockquote>
+              <div class="detail-meta">
+                <span id="detail-speaker">Giver · utterance 49</span>
+                <span class="status-pill misunderstood" id="detail-status">Misunderstood</span>
+              </div>
+            </div>
+
+            <div class="interpretation-group">
+              <div class="detail-label-row">
+                <h3 id="detail-title">Participant interpretations</h3>
+                <span id="annotation-source-label">Human-verified gold</span>
+              </div>
+              <div class="interpretation-cards">
+                <article>
+                  <span><i class="giver-dot"></i> Giver interpretation</span>
+                  <strong id="giver-interpretation">Hot wells</strong>
+                  <code id="giver-id">m9_hot_wells@g</code>
+                </article>
+                <span class="comparison-symbol" id="comparison-symbol" aria-label="Different interpretations">≠</span>
+                <article>
+                  <span><i class="follower-dot"></i> Follower interpretation</span>
+                  <strong id="follower-interpretation">Hot springs</strong>
+                  <code id="follower-id">m9_hot_springs@f</code>
+                </article>
+              </div>
+            </div>
+
+            <div class="judgment-group">
+              <div class="detail-label-row">
+                <h3>SINS common-ground judgment</h3>
+                <span>Qwen3-VL-8B-Instruct · startT</span>
+              </div>
+              <div class="judgment-cards">
+                <article><span>Gold</span><strong id="gold-judgment">No</strong></article>
+                <article><span>Text only</span><strong id="text-judgment">No</strong></article>
+                <article class="emphasis"><span>Both maps</span><strong id="maps-judgment">Yes</strong></article>
+              </div>
+              <p>SINS predicts whether the two interpretations match; participant landmark IDs come from the selected GMMT annotation source.</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="rights-note">
+          <span aria-hidden="true">ⓘ</span>
+          <p>
+            <strong>Source and attribution.</strong> Map images and short dialogue excerpts are from the HCRC MapTask Corpus and are displayed with attribution under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, as stated on the current official download page. Maps were converted to PNG and resized; dialogue excerpts were selected and reformatted; the interactive overlays are project additions. Participant interpretations come from GMMT and model judgments from SINS.
+          </p>
+        </div>
+      </section>
+
+      <section id="results" class="paper-section narrow-width" aria-labelledby="results-title">
+        <div class="section-heading compact">
+          <span class="section-number">Main result</span>
+          <h2 id="results-title">Seeing more does not guarantee understanding more</h2>
+        </div>
+        <div class="result-grid">
+          <div class="result-copy">
+            <p>
+              Access to authentic maps improves overall macro-F1 for Qwen3-VL-8B under the primary <em>startT</em> setting. Yet it also shifts predictions toward agreement: the model often treats visually available common ground as if participants had already established it in dialogue.
+            </p>
+            <ul>
+              <li>GMMT exposes disagreement that a single-reference annotation would erase.</li>
+              <li>SINS separates dialogue evidence from access to one or both maps.</li>
+              <li>The map condition raises the model's predicted “Yes” rate by 21.2 points.</li>
+            </ul>
+          </div>
+          <div class="finding-chart" role="img" aria-label="Qwen3-VL-8B predicted Yes rate rises from 51.5 percent with text only to 72.7 percent with both maps">
+            <div class="chart-title"><span>Predicted “Yes” rate</span><b>Qwen3-VL-8B · startT</b></div>
+            <div class="bar-row">
+              <div class="bar-label"><span>Text only</span><b>51.5%</b></div>
+              <div class="bar-track"><span style="--value: 51.5%"></span></div>
+            </div>
+            <div class="bar-row highlighted">
+              <div class="bar-label"><span>Both maps</span><b>72.7%</b></div>
+              <div class="bar-track"><span style="--value: 72.7%"></span></div>
+            </div>
+            <p><strong>+21.2 pp</strong> toward an alignment judgment</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="datasets" class="paper-section page-width" aria-labelledby="datasets-title">
+        <div class="section-heading compact centered">
+          <span class="section-number">Open resources</span>
+          <h2 id="datasets-title">Two connected datasets</h2>
+          <p>GMMT supplies participant-level interpretations; SINS converts them into controlled common-ground judgments for multimodal models.</p>
+        </div>
+
+        <div class="dataset-grid">
+          <article class="dataset-card">
+            <div class="dataset-badge gmmt">GMMT</div>
+            <span class="dataset-kind">Annotation resource · LREC 2026</span>
+            <h3>Grounded Misunderstandings in MapTask</h3>
+            <p>Separate giver and follower landmark resolutions for 13,077 referring expressions, including aligned, pending, and misunderstood states.</p>
+            <dl>
+              <div><dt>Unit</dt><dd>Reference expression</dd></div>
+              <div><dt>Views</dt><dd>Giver + follower</dd></div>
+              <div><dt>License</dt><dd>CC BY 4.0</dd></div>
+            </dl>
+            <div class="card-links">
+              <a href="https://huggingface.co/datasets/chnln/grounded-misunderstandings-in-maptask" target="_blank" rel="noreferrer">Dataset ↗</a>
+              <a href="https://github.com/chnln/grounded-misunderstandings-in-maptask" target="_blank" rel="noreferrer">Repository ↗</a>
+            </div>
+          </article>
+
+          <article class="dataset-card">
+            <div class="dataset-badge sins">SINS</div>
+            <span class="dataset-kind">Model challenge · SIGDIAL 2026</span>
+            <h3>Seeing Is Not Sharing</h3>
+            <p>A binary interpretation-matching task with controlled dialogue windows and map-access conditions for vision–language models.</p>
+            <dl>
+              <div><dt>Gold</dt><dd>Yes / No</dd></div>
+              <div><dt>Factors</dt><dd>Text × map access</dd></div>
+              <div><dt>Data license</dt><dd>CC BY 4.0</dd></div>
+            </dl>
+            <div class="card-links">
+              <a href="https://huggingface.co/datasets/chnln/seeing-is-not-sharing" target="_blank" rel="noreferrer">Dataset ↗</a>
+              <a href="https://github.com/chnln/seeing-is-not-sharing" target="_blank" rel="noreferrer">Repository ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="publications" class="paper-section narrow-width" aria-labelledby="publications-title">
+        <div class="section-heading compact centered">
+          <span class="section-number">Publications</span>
+          <h2 id="publications-title">Read and cite the work</h2>
+        </div>
+
+        <div class="publication-list">
+          <article>
+            <span class="pub-venue">LREC<br /><b>2026</b></span>
+            <div>
+              <h3>Grounded Misunderstandings in Asymmetric Dialogue: A Perspectivist Annotation Scheme for MapTask</h3>
+              <p>Nan Li, Albert Gatt, Massimo Poesio</p>
+              <div class="pub-links">
+                <a href="https://lrec.elra.info/lrec2026-main-392" target="_blank" rel="noreferrer">Proceedings</a>
+                <a href="https://doi.org/10.63317/59anbt78wyj7" target="_blank" rel="noreferrer">DOI</a>
+                <a href="https://arxiv.org/abs/2511.03718" target="_blank" rel="noreferrer">arXiv</a>
+              </div>
+            </div>
+          </article>
+          <article>
+            <span class="pub-venue">SIGDIAL<br /><b>2026</b></span>
+            <div>
+              <h3>Seeing Is Not Sharing: Some Vision-Language Models Overestimate Common Ground in Asymmetric Dialogue</h3>
+              <p>Nan Li, Albert Gatt, Massimo Poesio</p>
+              <div class="pub-links">
+                <a href="https://aclanthology.org/2026.sigdial-1.49/" target="_blank" rel="noreferrer">ACL Anthology</a>
+                <a href="https://arxiv.org/abs/2606.31719" target="_blank" rel="noreferrer">arXiv</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="bibtex-grid" aria-label="BibTeX citations">
+          <article class="bibtex-card">
+            <div class="bibtex-heading">
+              <div><span>LREC 2026</span><h3>Cite GMMT</h3></div>
+              <button type="button" data-copy-target="bibtex-gmmt" aria-label="Copy GMMT BibTeX">Copy BibTeX</button>
+            </div>
+            <pre id="bibtex-gmmt"><code>@inproceedings{li2026grounded,
+  title = {Grounded Misunderstandings in Asymmetric Dialogue:
+    A Perspectivist Annotation Scheme for {MapTask}},
+  author = {Li, Nan and Gatt, Albert and Poesio, Massimo},
+  booktitle = {Proceedings of the Fifteenth Language Resources
+    and Evaluation Conference (LREC 2026)},
+  month = {May},
+  year = {2026},
+  pages = {4988--5001},
+  publisher = {European Language Resources Association (ELRA)},
+  doi = {10.63317/59anbt78wyj7},
+  url = {https://lrec.elra.info/lrec2026-main-392}
+}</code></pre>
+          </article>
+
+          <article class="bibtex-card">
+            <div class="bibtex-heading">
+              <div><span>SIGDIAL 2026</span><h3>Cite SINS</h3></div>
+              <button type="button" data-copy-target="bibtex-sins" aria-label="Copy SINS BibTeX">Copy BibTeX</button>
+            </div>
+            <pre id="bibtex-sins"><code>@inproceedings{li2026seeing,
+  title = {Seeing Is Not Sharing: Some Vision-Language Models
+    Overestimate Common Ground in Asymmetric Dialogue},
+  author = {Li, Nan and Gatt, Albert and Poesio, Massimo},
+  editor = {Choi, Jinho D. and Chen, Yun-Nung and Funakoshi,
+    Kotaro and Emami, Ali},
+  booktitle = {Proceedings of the 27th Annual Meeting of the
+    Special Interest Group on Discourse and Dialogue},
+  month = aug,
+  year = {2026},
+  pages = {694--710},
+  publisher = {Association for Computational Linguistics},
+  url = {https://aclanthology.org/2026.sigdial-1.49/}
+}</code></pre>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner page-width">
+        <div>
+          <strong>GMMT × SINS</strong>
+          <p>Utrecht University · Institute for Language Sciences · ICS / NLP</p>
+        </div>
+        <div class="footer-notes">
+          <p>GMMT annotations and SINS data: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>. SINS code: MIT.</p>
+          <p>HCRC MapTask maps and quoted excerpts: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, per the <a href="https://groups.inf.ed.ac.uk/maptask/maptasknxt.html" target="_blank" rel="noreferrer">official download page</a>; maps converted to PNG/resized, excerpts reformatted, and interactive overlays added.</p>
+          <p><a href="./CREDITS.md">Full source, modification, and file-hash record</a> · <a href="./NOTICE.md">License notices</a></p>
+          <p>Page structure inspired by the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>; this implementation is written from scratch.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/chnln" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://huggingface.co/chnln" target="_blank" rel="noreferrer">Hugging Face ↗</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <noscript>This interactive explorer requires JavaScript; the papers and resource links remain available above.</noscript>
+  </body>
+</html>

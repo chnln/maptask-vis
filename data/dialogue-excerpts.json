@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "sourceFormat": "Verbatim transcript words from the GMMT all_display files; internal reference markup was removed without rewriting the transcript.",
+  "dialogues": {
+    "q1ec2": {
+      "mapId": "m9",
+      "focusRefId": "q1ec2.ref.7",
+      "sourceFile": "Misunderstanding/data/maptask/annotation/all_display/q1ec2_all_refs.txt",
+      "transcriptLineRange": [
+        24,
+        32
+      ],
+      "turns": [
+        {
+          "lineNumber": 24,
+          "speaker": "follower",
+          "utteranceId": 18,
+          "text": "erm have i to pass by the savannah",
+          "refIds": [
+            "q1ec2.ref.6"
+          ]
+        },
+        {
+          "lineNumber": 25,
+          "speaker": "giver",
+          "utteranceId": 19,
+          "text": "no you've to come down",
+          "refIds": []
+        },
+        {
+          "lineNumber": 26,
+          "speaker": "follower",
+          "utteranceId": 20,
+          "text": "erm",
+          "refIds": []
+        },
+        {
+          "lineNumber": 27,
+          "speaker": "giver",
+          "utteranceId": 21,
+          "text": "and round past the site of the plane crash no",
+          "refIds": [
+            "q1ec2.ref.7"
+          ]
+        },
+        {
+          "lineNumber": 28,
+          "speaker": "follower",
+          "utteranceId": 22,
+          "text": "erm erm plane crash is to north of where i am",
+          "refIds": [
+            "q1ec2.ref.8"
+          ]
+        },
+        {
+          "lineNumber": 29,
+          "speaker": "giver",
+          "utteranceId": 23,
+          "text": "well is there no one right at the bottom left-hand side of the page",
+          "refIds": [
+            "q1ec2.ref.9"
+          ]
+        },
+        {
+          "lineNumber": 30,
+          "speaker": "follower",
+          "utteranceId": 24,
+          "text": "no",
+          "refIds": []
+        },
+        {
+          "lineNumber": 31,
+          "speaker": "giver",
+          "utteranceId": 23,
+          "text": "okay",
+          "refIds": []
+        },
+        {
+          "lineNumber": 32,
+          "speaker": "giver",
+          "utteranceId": 25,
+          "text": "well come to walk right to the right-hand side of the page",
+          "refIds": []
+        }
+      ]
+    },
+    "q1nc3": {
+      "mapId": "m6",
+      "focusRefId": "q1nc3.ref.21",
+      "sourceFile": "Misunderstanding/data/maptask/annotation/all_display/q1nc3_all_refs.txt",
+      "transcriptLineRange": [
+        46,
+        53
+      ],
+      "turns": [
+        {
+          "lineNumber": 46,
+          "speaker": "giver",
+          "utteranceId": 39,
+          "text": "well do have you got a graveyard sort of in the middle of the page on a level to the c-- er diamond mine",
+          "refIds": [
+            "q1nc3.ref.19",
+            "q1nc3.ref.20"
+          ]
+        },
+        {
+          "lineNumber": 47,
+          "speaker": "follower",
+          "utteranceId": 40,
+          "text": "no i've got a fast running creek",
+          "refIds": [
+            "q1nc3.ref.21"
+          ]
+        },
+        {
+          "lineNumber": 48,
+          "speaker": "giver",
+          "utteranceId": 41,
+          "text": "a fast flowing river eh",
+          "refIds": [
+            "q1nc3.ref.22"
+          ]
+        },
+        {
+          "lineNumber": 49,
+          "speaker": "follower",
+          "utteranceId": 42,
+          "text": "no where's that mmhmm eh",
+          "refIds": [
+            "q1nc3.ref.23"
+          ]
+        },
+        {
+          "lineNumber": 50,
+          "speaker": "follower",
+          "utteranceId": 44,
+          "text": "canoes",
+          "refIds": [
+            "q1nc3.ref.24"
+          ]
+        },
+        {
+          "lineNumber": 51,
+          "speaker": "giver",
+          "utteranceId": 43,
+          "text": "where is that",
+          "refIds": [
+            "q1nc3.ref.25"
+          ]
+        },
+        {
+          "lineNumber": 52,
+          "speaker": "follower",
+          "utteranceId": 44,
+          "text": "eh the fast running creek is at the top right-hand side of the page beside diamond mine no",
+          "refIds": [
+            "q1nc3.ref.26",
+            "q1nc3.ref.27"
+          ]
+        },
+        {
+          "lineNumber": 53,
+          "speaker": "giver",
+          "utteranceId": 45,
+          "text": "the diamond mine is that on the right-hand side of your page",
+          "refIds": [
+            "q1nc3.ref.28",
+            "q1nc3.ref.29"
+          ]
+        }
+      ]
+    },
+    "q1nc7": {
+      "mapId": "m12",
+      "focusRefId": "q1nc7.ref.34",
+      "sourceFile": "Misunderstanding/data/maptask/annotation/all_display/q1nc7_all_refs.txt",
+      "transcriptLineRange": [
+        57,
+        65
+      ],
+      "turns": [
+        {
+          "lineNumber": 57,
+          "speaker": "follower",
+          "utteranceId": 41,
+          "text": "yes but you see the mill kind of overlaps my picket fence",
+          "refIds": [
+            "q1nc7.ref.34",
+            "q1nc7.ref.35"
+          ]
+        },
+        {
+          "lineNumber": 58,
+          "speaker": "giver",
+          "utteranceId": 42,
+          "text": "well you'll have to go right round it",
+          "refIds": [
+            "q1nc7.ref.36"
+          ]
+        },
+        {
+          "lineNumber": 59,
+          "speaker": "follower",
+          "utteranceId": 43,
+          "text": "uh-huh",
+          "refIds": []
+        },
+        {
+          "lineNumber": 60,
+          "speaker": "giver",
+          "utteranceId": 44,
+          "text": "on the left-hand side right",
+          "refIds": []
+        },
+        {
+          "lineNumber": 61,
+          "speaker": "follower",
+          "utteranceId": 45,
+          "text": "so i'm going rou-- round the left-hand side of the mill",
+          "refIds": [
+            "q1nc7.ref.37"
+          ]
+        },
+        {
+          "lineNumber": 62,
+          "speaker": "giver",
+          "utteranceId": 46,
+          "text": "of the old mill uh-huh and get to the top of the roof right",
+          "refIds": [
+            "q1nc7.ref.38",
+            "q1nc7.ref.39"
+          ]
+        },
+        {
+          "lineNumber": 63,
+          "speaker": "giver",
+          "utteranceId": 48,
+          "text": "you're",
+          "refIds": []
+        },
+        {
+          "lineNumber": 64,
+          "speaker": "follower",
+          "utteranceId": 47,
+          "text": "right",
+          "refIds": []
+        },
+        {
+          "lineNumber": 65,
+          "speaker": "giver",
+          "utteranceId": 48,
+          "text": "you're at the roof right so go up and there's about mm see the fenced meadow",
+          "refIds": [
+            "q1nc7.ref.40",
+            "q1nc7.ref.41"
+          ]
+        }
+      ]
+    }
+  }
+}

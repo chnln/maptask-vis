@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "coordinateSystem": "Image-relative percentages: x from the left, y from the top, and r as a hit-target radius.",
+  "maps": {
+    "m9": {
+      "label": "Map 9",
+      "dialogueId": "q1ec2",
+      "images": {
+        "giver": {
+          "src": "static/images/maps/map9g.png",
+          "width": 791,
+          "height": 1024,
+          "sha256": "58deca52af25cc0e5871d56db98d6ec549210a64b2598b08379bbd15c962e80b"
+        },
+        "follower": {
+          "src": "static/images/maps/map9f.png",
+          "width": 791,
+          "height": 1024,
+          "sha256": "52152cc4b6a885070ab92ec0eaa3631d988415211108b9c98d6f41041ffaa0f6"
+        }
+      },
+      "giver": [
+        {
+          "id": "m9_site_of_plane_crash#0@g",
+          "label": "site of plane crash · lower",
+          "x": 24.0,
+          "y": 88.6,
+          "r": 7.0
+        },
+        {
+          "id": "m9_site_of_plane_crash#1@g",
+          "label": "site of plane crash · upper",
+          "x": 81.6,
+          "y": 24.2,
+          "r": 6.5
+        },
+        {
+          "id": "m9_hot_wells@g",
+          "label": "hot wells",
+          "x": 35.6,
+          "y": 54.0,
+          "r": 6.5
+        }
+      ],
+      "follower": [
+        {
+          "id": "m9_site_of_plane_crash#1@f",
+          "label": "site of plane crash · upper",
+          "x": 81.7,
+          "y": 24.3,
+          "r": 6.5
+        },
+        {
+          "id": "m9_hot_springs@f",
+          "label": "hot springs",
+          "x": 35.5,
+          "y": 54.0,
+          "r": 6.5
+        }
+      ]
+    },
+    "m6": {
+      "label": "Map 6",
+      "dialogueId": "q1nc3",
+      "images": {
+        "giver": {
+          "src": "static/images/maps/map6g.png",
+          "width": 791,
+          "height": 1024,
+          "sha256": "e91673ac9be2ec4dd2a729a119fddb9726f2e02db9125a9cb9ef77584bfb4cfe"
+        },
+        "follower": {
+          "src": "static/images/maps/map6f.png",
+          "width": 791,
+          "height": 1024,
+          "sha256": "855f33d7a734e8751f445c411c434556201f07caf18d271d8c46aa1b5054d0e0"
+        }
+      },
+      "giver": [
+        {
+          "id": "m6_fast_flowing_river@g",
+          "label": "fast flowing river",
+          "x": 74.0,
+          "y": 7.2,
+          "r": 7.0
+        },
+        {
+          "id": "m6_carved_wooden_pole#1@g",
+          "label": "carved wooden pole · upper",
+          "x": 53.2,
+          "y": 27.0,
+          "r": 5.5
+        },
+        {
+          "id": "m6_carved_wooden_pole#0@g",
+          "label": "carved wooden pole · lower",
+          "x": 35.7,
+          "y": 79.2,
+          "r": 5.5
+        }
+      ],
+      "follower": [
+        {
+          "id": "m6_fast_running_creek@f",
+          "label": "fast running creek",
+          "x": 74.1,
+          "y": 7.3,
+          "r": 7.0
+        },
+        {
+          "id": "m6_carved_wooden_pole#0@f",
+          "label": "carved wooden pole",
+          "x": 35.7,
+          "y": 79.2,
+          "r": 5.5
+        }
+      ]
+    },
+    "m12": {
+      "label": "Map 12",
+      "dialogueId": "q1nc7",
+      "images": {
+        "giver": {
+          "src": "static/images/maps/map12g.png",
+          "width": 791,
+          "height": 1024,
+          "sha256": "6bfe38398e13602422e46d8185711dc36844dc9bfba666730e10c76e7f4ac9ca"
+        },
+        "follower": {
+          "src": "static/images/maps/map12f.png",
+          "width": 791,
+          "height": 1024,
+          "sha256": "166c82e3bab70ab1b13476f97f55f95e9e074d72de02bf589719ab3963f8ee42"
+        }
+      },
+      "giver": [
+        {
+          "id": "m12_old_mill@g",
+          "label": "old mill",
+          "x": 30.4,
+          "y": 83.2,
+          "r": 7.0
+        },
+        {
+          "id": "m12_fenced_meadow#1@g",
+          "label": "fenced meadow · upper",
+          "x": 23.0,
+          "y": 53.3,
+          "r": 8.0
+        },
+        {
+          "id": "m12_fenced_meadow#0@g",
+          "label": "fenced meadow · lower",
+          "x": 75.0,
+          "y": 87.3,
+          "r": 8.0
+        }
+      ],
+      "follower": [
+        {
+          "id": "m12_mill_wheel@f",
+          "label": "mill wheel",
+          "x": 30.4,
+          "y": 83.0,
+          "r": 7.0
+        },
+        {
+          "id": "m12_fenced_meadow#0@f",
+          "label": "fenced meadow",
+          "x": 75.0,
+          "y": 87.3,
+          "r": 8.0
+        },
+        {
+          "id": "m12_forest@f",
+          "label": "forest",
+          "x": 56.7,
+          "y": 69.7,
+          "r": 7.5
+        }
+      ]
+    }
+  }
+}

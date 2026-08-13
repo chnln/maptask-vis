@@ -1,0 +1,15 @@
+.DS_Store
+
+# Local servers and editor files
+.idea/
+.vscode/
+
+# Keep uncurated source checkouts out of this lightweight site. The curated
+# maps and transcript excerpts under static/ and data/ are attributed in
+# CREDITS.md and NOTICE.md under HCRC's current CC BY 4.0 terms.
+data/private/
+data/local-corpus/
+assets/original-maps/
+assets/original-transcripts/
+*.wav
+*.sph
