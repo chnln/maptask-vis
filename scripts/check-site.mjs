@@ -4,6 +4,26 @@ import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
 const read = (name) => readFileSync(new URL(name, root), "utf8");
+// Verbatim RQ1–RQ3 from the Introduction of each paper (not summary questions).
+const paperQuestions = {
+  gmmt: [
+    "Is it possible to develop a personal-interpretation annotation scheme to capture nuanced understanding states for REs in collaborative tasks like MapTask?",
+    "Given conflicting personal interpretations, can we trace how understanding evolves across turns until the successful grounding?",
+    "Can LLMs, under a schema-constrained protocol, reliably annotate personal interpretations; and how does their output inform future evaluation of (V)LLMs on grounded dialogue?",
+  ],
+  sins: [
+    "Can large vision-language models (VLMs) capture personal interpretations of interlocutors toward the same reference expression in asymmetric dialogue?",
+    "Which modality of information contributes more to VLMs' assessment of interpretation alignment?",
+    "Do VLMs exhibit systematically different behaviours on different types of alignment and misalignment cases?",
+  ],
+};
+for (const page of ["index.html", "preview.html"]) {
+  for (const [paper, questions] of Object.entries(paperQuestions)) {
+    const card = read(page).match(new RegExp(`<aside class="research-question ${paper}-questions"[\\s\\S]*?</aside>`));
+    assert.ok(card, `${page}: ${paper} research questions`);
+    assert.deepEqual([...card[0].matchAll(/<li>(.*?)<\/li>/g)].map((match) => match[1]), questions, `${page}: verbatim ${paper} RQ1–RQ3`);
+  }
+}
 const corpus = JSON.parse(read("data/corpus-data.json"));
 const hotspots = JSON.parse(read("data/hotspots.json"));
 const maps = [...new Map(corpus.demos.map((demo) => [demo.mapId, demo])).values()];
