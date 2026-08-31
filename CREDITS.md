@@ -4,11 +4,11 @@ The interactive demo combines material with different owners and licences.
 Licences apply per component; no licence entry below transfers ownership of one
 component to another.
 
-Source and licence information was checked on **2026-08-13**.
+Source and licence information was checked on **2026-08-31**.
 
 ## HCRC Map Task Corpus
 
-The six map images and the spoken words in the three short dialogue excerpts
+The 32 map images and the spoken words in the 128 dialogue transcripts
 come from the **HCRC Map Task Corpus Annotations Version 2.1**, Human
 Communication Research Centre, University of Edinburgh & University of
 Glasgow, copyright © 2007 Human Communication Research Centre.
@@ -35,13 +35,19 @@ Please cite the source corpus:
 - The source map scans were previously converted to RGB PNG and resized to a
   1024-pixel maximum side by the SINS preprocessing workspace. The files used
   here are 791 × 1024 pixels.
-- This repository copied those six resized PNG byte-for-byte; it did not crop,
+- This repository copied the resized PNGs byte-for-byte; it did not crop,
   recolour, retouch, or draw markers into the images.
 - Click targets and prediction highlights are separate HTML/CSS overlays. Their
-  image-relative coordinates are recorded in `data/hotspots.json`.
-- The dialogue excerpts preserve the transcript wording and line order. Only
-  the internal `<< … id:… lm:… >>` display markup was removed. Unified
-  reference IDs are retained separately as structured metadata.
+  AI-assisted, visually estimated image-relative coordinates are recorded in `data/hotspots.json`:
+  431 physical regions across all 32 maps, checked against the released landmark
+  presence catalog. These are UI regions, not original corpus annotations or
+  human-verified gold bounding boxes.
+  Irregular water features use a labeled interior region to avoid intercepting
+  nearby landmarks; smaller click targets take priority in overlapping regions.
+- Transcripts preserve wording and chronological line order, reconstructed from
+  preprocessed timed units checked against the official XML. Whitespace is
+  normalised. Reference spans use released timed-unit IDs directly, retaining
+  nested and crossing references without relying on lossy display markup.
 - No HCRC audio or participant-identifying material is included.
 
 ## GMMT
@@ -83,7 +89,9 @@ Please cite:
 
 ## Included map-file integrity record
 
-These hashes identify the exact resized images reviewed for the demo:
+These hashes identify the initial six curated map assets; all 32 images are
+copied unchanged from the same resized source directory. A complete current
+SHA-256 manifest is generated in `data/map-image-hashes.json`.
 
 | File | Role | SHA-256 |
 | --- | --- | --- |
@@ -94,6 +102,6 @@ These hashes identify the exact resized images reviewed for the demo:
 | `static/images/maps/map12g.png` | Map 12 giver | `6bfe38398e13602422e46d8185711dc36844dc9bfba666730e10c76e7f4ac9ca` |
 | `static/images/maps/map12f.png` | Map 12 follower | `166c82e3bab70ab1b13476f97f55f95e9e074d72de02bf589719ab3963f8ee42` |
 
-The source copies for all six files were taken from
+The source copies for all 32 files were taken from
 `maptask-perspective-taking/data/rawdata/resized_png/max-side-1024px/` in the
 local research workspace.

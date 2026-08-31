@@ -8,7 +8,7 @@ relicense corpus content, datasets, model outputs, papers, names, or logos.
 
 | Material used by the site | Source | Applicable terms |
 | --- | --- | --- |
-| Authentic maps and short dialogue excerpts | HCRC Map Task Corpus Annotations v2.1, Human Communication Research Centre, University of Edinburgh and University of Glasgow, © 2007 Human Communication Research Centre | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), as stated for downloads on the [official HCRC download page](https://groups.inf.ed.ac.uk/maptask/maptasknxt.html) (accessed 13 August 2026) |
+| Authentic maps and dialogue transcripts | HCRC Map Task Corpus Annotations v2.1, Human Communication Research Centre, University of Edinburgh and University of Glasgow, © 2007 Human Communication Research Centre | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), as stated for downloads on the [official HCRC download page](https://groups.inf.ed.ac.uk/maptask/maptasknxt.html) (checked 31 August 2026) |
 | Perspectivist landmark interpretations, reference-expression annotations, schemas, and derived metadata | Grounded Misunderstandings in MapTask (GMMT), Nan Li, Albert Gatt, and Massimo Poesio | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Interpretation-matching records and released result extracts | Seeing Is Not Sharing (SINS), Nan Li, Albert Gatt, and Massimo Poesio | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Original HTML, CSS, JavaScript, and repository scripts written for this site | GMMT × SINS project page contributors | MIT; see `LICENSE` |
@@ -49,11 +49,14 @@ edited. Clickable landmark hotspots, selection states, and highlights are
 separate HTML overlays added by the project page; they are not part of the
 original maps.
 
-Only brief dialogue excerpts are presented. The site removes internal
-`<<... id:... lm:...>>` annotation markup, retains the original transcribed
-words and utterance IDs, displays corpus speaker codes as the role labels
-“Giver” and “Follower,” and adds a web `<mark>` highlight around the currently
-selected reference expression. Excerpts may be reflowed to fit the interface.
+The homepage presents a moving context window around the selected reference;
+the corpus browser presents all 128 transcripts. Text is reconstructed from
+preprocessed timed units (verified against the original XML), with reference
+spans anchored by the released timed-unit IDs. Original words, chronological
+line order, speaker roles and utterance IDs are retained; whitespace is
+normalised. Clickable highlights and reference-ID buttons are added. Text may
+be reflowed to fit the interface. The four existence/lexical/multiplicity/
+identical gallery overlays are explanatory, not model outputs.
 No semantic changes to the quoted dialogue are intended.
 
 The page must not state or imply that HCRC, the University of Edinburgh, the
@@ -66,7 +69,7 @@ to protect participant privacy. This project also does not publish corpus audio.
 
 ### GMMT and SINS
 
-The site selects and reformats a small visualization extract, attaches
+The site reformats the full released annotation layer, attaches
 human-readable labels, and joins GMMT interpretation records to SINS model
 judgments by reference ID. Interactive filtering, hotspot coordinates, color
 coding, and model/source badges are project-page additions. The underlying

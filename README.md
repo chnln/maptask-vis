@@ -1,13 +1,18 @@
-# GMMT × SINS academic project page
+# MapTask Vis — Grounded Interpretations in MapTask
+
+[Project homepage](https://chnln.github.io/maptask-vis/) ·
+[Browse the corpus](https://chnln.github.io/maptask-vis/explorer.html) ·
+[Releases](https://github.com/chnln/maptask-vis/releases)
 
 This repository contains the academic project page for two related MapTask
 resources:
 
 - **GMMT — Grounded Misunderstandings in MapTask**, a perspectivist dataset
-  that records the giver's and follower's landmark interpretations; and
+  that records the giver's and follower's landmark interpretations
+  (**LREC 2026**); and
 - **SINS — Seeing Is Not Sharing**, an interpretation-matching benchmark for
   testing whether language and vision-language models can distinguish
-  potential common ground from grounded agreement.
+  potential common ground from grounded agreement (**SIGDIAL 2026**).
 
 The page follows the familiar single-paper project-page format—title, authors,
 paper/data/code links, overview, results, publications, and citation—while
@@ -19,7 +24,7 @@ dependency-free site suitable for GitHub Pages.
 The explorer combines three separately attributed layers:
 
 1. **HCRC MapTask source material:** authentic route-giver and route-follower
-   maps plus short dialogue excerpts;
+   maps plus complete transcripts (a moving context window on the homepage);
 2. **GMMT annotations:** the two participants' predicted or human-verified
    landmark interpretations and the resulting aligned, pending, or
    misunderstood state; and
@@ -32,21 +37,90 @@ interpretations. Every prediction shown in the interface identifies its model
 and evidence condition. Hotspots and highlights are presentation overlays; they
 do not replace the underlying maps or annotation records.
 
-This site uses short research excerpts only. It does **not** include HCRC
-MapTask audio or video. See [NOTICE.md](NOTICE.md) for source attribution,
+The homepage starts with four landmark-relationship tabs (identical, lexical,
+existence, multiplicity), defaulting to the real Map 0 parked vans. Its dialogue
+example is q8nc6. The paper's rearranged, simplified illustration is not treated
+as a literal transcript or map layout.
+
+The separate corpus browser includes all **128 dialogues / 13,077 annotations**.
+Only q1ec2, q1nc3 and q1nc7 have a human-verified layer (504 references). All 32
+maps are included, with **431 clickable physical landmark regions**, including
+start/finish markers. The regions are AI-assisted visual estimates on each
+original map, not corpus-supplied or human-verified gold bounding boxes, and
+not outputs of the GMMT/SINS annotation models. Irregular
+water/terrain features use their label and a nearby interior area; smaller
+regions sit above larger ones where their rectangles overlap.
+The map selection, landmark-list highlight, and related mentions are linked.
+Lexical equivalents share a list item; multiplicity mentions include all
+instances, while the selected physical instance is highlighted on its map.
+Landmarks with no mention in a dialogue remain clickable and show an empty state.
+GPT-5 annotation is selected initially and whenever the dialogue changes;
+the human-verified layer is an explicit alternative where available.
+SINS dataset targets always come from the released GPT-5 layer, independently
+of which GMMT annotation layer is being inspected.
+
+### How the homepage dialogue windows are chosen
+
+The four homepage dialogues and opening references are editorially selected,
+not randomly sampled or selected online by a model:
+
+| Map | Dialogue | Opening reference | Demonstration focus |
+| --- | --- | --- | --- |
+| m0 | q8nc6 | q8nc6.ref.2 | Parked-van multiplicity |
+| m9 | q1ec2 | q1ec2.ref.7 | Multiplicity |
+| m6 | q1nc3 | q1nc3.ref.21 | Lexical variants |
+| m12 | q1nc7 | q1nc7.ref.34 | Repair over time |
+
+The homepage shows up to five transcript lines before the selected reference's
+first line and seven after it (13 lines including the anchor, clipped at the
+dialogue boundaries). Selecting another reference moves this window. Lines
+are consecutive time-ordered units grouped by speaker and utterance ID, not
+necessarily alternating conversational turns. These display windows are not
+the annotation/model evidence window (dialogue start through the current
+transaction). The corpus browser always renders the complete transcript.
+
+The site does **not** include HCRC MapTask audio or video. See [NOTICE.md](NOTICE.md) for source attribution,
 modification notes, and the license that applies to each layer.
 
 ## Run locally
 
-No package installation or build step is required for the checked-in site:
+The checked-in website needs only **Python 3 and a modern browser**. No npm
+packages, API keys, model inference service, or application backend are needed.
+The server below only serves static files; all interaction runs in the browser.
 
 ```bash
-cd /path/to/gmmt-vis
-python3 -m http.server 4173
+git clone https://github.com/chnln/maptask-vis.git
+cd maptask-vis
+python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Open <http://127.0.0.1:4173/>. Do not open `index.html` directly: browsers
-normally block the local `fetch()` used to load the demo data.
+Open [http://127.0.0.1:4173/](http://127.0.0.1:4173/), or
+[the corpus browser](http://127.0.0.1:4173/explorer.html). Press Ctrl+C in the
+terminal to stop serving. Cloning requires repository access while the source
+repository is private; the published Pages website is publicly accessible.
+
+Do **not** double-click `index.html` or `explorer.html`: Chrome and other
+browsers normally block the local `fetch()` requests used by these pages.
+
+### Editing and offline previews
+
+**Node.js 22 or newer** is used for generation and validation (no dependency
+installation). Edit `index.html`, `styles.css`, and `app.js`; `explorer.html`
+is generated from the homepage's shared reader and should not be edited directly.
+
+After changing the site or demo data, regenerate both snapshots and the shared
+`explorer.html` route with:
+
+```bash
+node scripts/build-preview.mjs
+```
+
+This produces `preview.html` and `explorer-preview.html`, which embed their
+styles, scripts, maps, data, and attribution. Keep the two files together for
+navigation. They can be opened offline without `fetch()`; if your browser
+restricts local-file navigation, use the HTTP command above. External links
+still require internet access. Generated offline previews are ignored by Git
+and distributed together in the release's `maptask-vis-v0.1.0-offline.zip`.
 
 ## Rebuild the annotation and prediction extract
 
@@ -57,7 +131,10 @@ experiment outputs:
 node scripts/build-demo-data.mjs \
   --gmmt /path/to/grounded-misunderstandings-in-maptask \
   --experiments /path/to/maptask-perspective-taking \
-  --out data/demo-data.json
+  --timed-units /path/to/timed-units_json-transformed/combined \
+  --out data/demo-data.json \
+  --corpus data/corpus-data.json
+node scripts/build-preview.mjs
 ```
 
 The generator keeps the two kinds of model output distinct:
@@ -66,9 +143,16 @@ The generator keeps the two kinds of model output distinct:
 - SINS predictions answer whether the two interpretations match—they do not
   predict the landmark IDs themselves.
 
+Transcript spans are anchored directly by the release's `timed_unit_ids` and
+the preprocessed, time-ordered HCRC timed units. Do not recover them from
+`<<...>>` display markup: nested and crossing references lose their identities
+in that format. The exporter retains separate spans and per-line ID buttons,
+including overlapping references. All 13,077 span texts, starting speaker roles
+and utterance IDs are checked against released annotation records.
+
 The human-verified toggle is available only for the selected verified examples.
 The rebuild command does not download HCRC source material; map assets and
-dialogue excerpts must be prepared from an independently obtained copy of the
+transcripts must be prepared from an independently obtained copy of the
 official corpus and attributed as described in [NOTICE.md](NOTICE.md).
 
 ## Checks
@@ -76,11 +160,21 @@ official corpus and attributed as described in [NOTICE.md](NOTICE.md).
 Run the JavaScript syntax checks before publishing:
 
 ```bash
+node scripts/build-preview.mjs
 node --check app.js
 node --check scripts/build-demo-data.mjs
+node --check scripts/build-preview.mjs
+node --check scripts/build-site.mjs
+node scripts/check-site.mjs
+node scripts/build-site.mjs
 ```
 
-Then serve the site locally and verify that:
+`check-site.mjs` checks all transcript anchors and runs dependency-free
+DOM-stub smoke tests for both offline pages, deep links, all four tabs, all 128
+dialogues, source switching, filtering, reference navigation, all 431 landmark
+regions and their linked list/mention controls. It does not
+verify browser rendering or responsive layout. For visual QA, serve the site
+locally and verify that:
 
 - the paper, dataset, and code links open correctly;
 - changing examples updates both maps and the adjacent dialogue;
@@ -89,20 +183,49 @@ Then serve the site locally and verify that:
 - desktop and narrow mobile layouts have no clipped controls or horizontal
   overflow.
 
-## Publish at `gmmt-vis.github.io`
+## Deployment: GitHub Pages
 
-For the requested organization-root URL, both GitHub names are significant:
+Repository: [chnln/maptask-vis](https://github.com/chnln/maptask-vis).
+Website: [https://chnln.github.io/maptask-vis/](https://chnln.github.io/maptask-vis/).
 
-- the GitHub organization must be named **`gmmt-vis`**; and
-- this repository must be named exactly **`gmmt-vis.github.io`**.
+GitHub Pages serves this static site directly; no rented server or separate
+backend is required. Pages uses **Settings → Pages → Build and deployment →
+GitHub Actions**. The workflow in `.github/workflows/pages.yml` runs on pushes
+to `main` and can also be started manually from Actions. It regenerates the
+corpus route and offline previews, runs the regression checks, packages an
+explicit allowlist of public files into `_site/`, then deploys that directory.
+Git metadata, scripts, local files, and offline preview duplicates are not
+published as website assets. Relative URLs support the `/maptask-vis/` subpath.
 
-That combination publishes at <https://gmmt-vis.github.io/>. A repository named
-`gmmt-vis` would instead be a project site below an organization URL, not the
-organization's root Pages site.
+For updates:
 
-After pushing the `main` branch, open **Settings → Pages → Build and
-deployment**, select **GitHub Actions**, and run the included Pages workflow (or
-push another commit to `main`). Relative asset paths are used throughout.
+```bash
+node scripts/build-preview.mjs
+node scripts/check-site.mjs
+node scripts/build-site.mjs
+git add <changed-files>
+git commit -m "Update project page"
+git push origin main
+```
+
+Commit the regenerated `explorer.html` and `data/map-image-hashes.json` when
+they change. The workflow fails if these tracked generated files are stale.
+You can also check exactly what will be published:
+
+```bash
+python3 -m http.server 4173 --bind 127.0.0.1 --directory _site
+```
+
+### Known limitations
+
+- Hotspots are approximate UI regions, not a bounding-box evaluation dataset.
+- Human verification covers three dialogues (504 references), not the full corpus.
+- SINS judgments shown here are saved **Qwen3-VL-8B-Instruct** outputs, not live
+  inference or results for every model in the paper.
+- Six released GPT-5 interpretation fields refer to `m2_stone_creek@f`, which
+  has no corresponding physical landmark in the released map catalog. The
+  original IDs are preserved and the UI reports the absent map counterpart;
+  it does not invent a landmark region.
 
 ## Provenance and source resources
 
@@ -114,7 +237,9 @@ push another commit to `main`). Relative asset paths are used throughout.
 
 ## Citations
 
-Please cite the original corpus and the relevant dataset paper(s):
+Please cite the original corpus and the relevant dataset paper(s), rather than
+treating this visualization release as a new dataset release. Import all three
+entries from [CITATION.bib](CITATION.bib), or use the BibTeX below.
 
 1. Anderson, Anne H., et al. (1991). “The HCRC Map Task Corpus.”
    *Language and Speech*, 34(4), 351–366.
@@ -127,6 +252,38 @@ Please cite the original corpus and the relevant dataset paper(s):
    Some Vision-Language Models Overestimate Common Ground in Asymmetric
    Dialogue.” *Proceedings of SIGDIAL 2026*, 694–710.
    <https://aclanthology.org/2026.sigdial-1.49/>
+
+<details>
+<summary>BibTeX for GMMT and SINS</summary>
+
+```bibtex
+@inproceedings{li2026grounded,
+  title = {Grounded Misunderstandings in Asymmetric Dialogue:
+    A Perspectivist Annotation Scheme for {MapTask}},
+  author = {Li, Nan and Gatt, Albert and Poesio, Massimo},
+  booktitle = {Proceedings of the Fifteenth Language Resources
+    and Evaluation Conference (LREC 2026)},
+  year = {2026},
+  pages = {4988--5001},
+  publisher = {European Language Resources Association (ELRA)},
+  doi = {10.63317/59anbt78wyj7},
+  url = {https://lrec.elra.info/lrec2026-main-392}
+}
+
+@inproceedings{li2026seeing,
+  title = {Seeing Is Not Sharing: Some Vision-Language Models
+    Overestimate Common Ground in Asymmetric Dialogue},
+  author = {Li, Nan and Gatt, Albert and Poesio, Massimo},
+  booktitle = {Proceedings of the 27th Annual Meeting of the
+    Special Interest Group on Discourse and Dialogue},
+  year = {2026},
+  pages = {694--710},
+  publisher = {Association for Computational Linguistics},
+  url = {https://aclanthology.org/2026.sigdial-1.49/}
+}
+```
+
+</details>
 
 ## License
 

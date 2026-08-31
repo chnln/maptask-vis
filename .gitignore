@@ -3,6 +3,22 @@
 # Local servers and editor files
 .idea/
 .vscode/
+*.log
+*.swp
+__pycache__/
+.venv/
+node_modules/
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+
+# Reproducible build outputs; offline previews are release attachments.
+/preview.html
+/explorer-preview.html
+/_site/
+/release-assets/
 
 # Keep uncurated source checkouts out of this lightweight site. The curated
 # maps and transcript excerpts under static/ and data/ are attributed in

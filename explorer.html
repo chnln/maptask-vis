@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browse all MapTask dialogues & annotations · GMMT × SINS</title>
+  <meta name="description" content="Explore all 128 MapTask dialogues, 16 map pairs and 13,077 GMMT reference annotations, with saved SINS matching judgments." />
+  <meta property="og:title" content="GMMT × SINS · Full corpus browser" />
+  <meta property="og:description" content="128 dialogues, 16 map pairs and 13,077 perspectivist annotations. Follow each reference in its complete dialogue." />
+  <link rel="canonical" href="https://chnln.github.io/maptask-vis/explorer.html" />
+  <meta property="og:url" content="https://chnln.github.io/maptask-vis/explorer.html" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module" src="./app.js"></script>
+</head><body class="corpus-page" data-view="corpus">
+  <a class="skip-link" href="#explorer">Skip to the corpus browser</a>
+  <header class="site-header"><a class="site-mark" href="./index.html">GMMT × SINS</a><nav aria-label="Project navigation"><a href="./index.html">← Project home</a></nav></header>
+  <main id="top"><section class="corpus-intro page-width"><p class="section-number">Complete corpus browser</p><h1>Every dialogue. Both perspectives.</h1><p>Choose a map and a dialogue, then click any underlined reference or its ID. Read the entire transcript alongside the original maps, inspect the annotation cascade, or compare the saved SINS judgments.</p><p><strong>128 dialogues · 16 map pairs · 13,077 annotations.</strong> GPT-5 annotations cover the full corpus and are selected by default. Human-verified annotations are available only for q1ec2, q1nc3 and q1nc7 (504 references). Every visible landmark has a clickable region, including landmarks not mentioned in the selected dialogue.</p><p><a href="./index.html#understanding-states-title">What do aligned, pending and misunderstood mean?</a></p></section>
+        <section id="explorer" class="paper-section demo-section page-width" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <span class="section-number">Interactive demo</span>
+          <h2 id="explorer-title">One expression, two situated interpretations</h2>
+          <p>
+            Click an underlined phrase in the dialogue. The coloured map outlines and the two interpretation cards update for that exact reference. The opening parked-van case is a real exchange (q8nc6), not the papers' simplified dialogue.
+          </p>
+        </div>
+
+        <div class="reading-guide"><span><b>1</b> Choose a dialogue</span><span><b>2</b> Click a phrase in context</span><span><b>3</b> Compare the two interpretations</span></div>
+        <div class="explorer-frame">
+          <div class="explorer-toolbar">
+            <div class="map-switcher" role="group" aria-label="Choose map pair" id="map-switcher"></div>
+            <div class="corpus-selectors" hidden><label>Map pair<select id="corpus-map"></select></label><label>Dialogue<select id="corpus-dialogue"></select></label></div>
+            <div class="annotation-control">
+              <span>Interpretation annotation</span>
+              <div class="segmented" role="group" aria-label="Choose annotation source">
+                <button type="button" data-source="gpt5" class="is-active" aria-pressed="true">GPT-5 annotation</button>
+                <button type="button" data-source="human" aria-pressed="false">Human-verified</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="explorer-grid">
+            <section class="maps-panel" aria-labelledby="map-panel-title">
+              <div class="panel-heading">
+                <div>
+                  <span class="panel-kicker">Map pair <b id="current-map-id">m9</b></span>
+                  <h3 id="map-panel-title">Real participant maps</h3>
+                </div>
+                <span class="map-source-badge">HCRC MapTask · actual maps</span>
+              </div>
+
+              <div class="map-pair" id="map-pair"></div>
+              <p class="map-zoom-help">Click a landmark's icon or name to find its mentions. Click the map background to enlarge.</p>
+
+              <div class="map-legend" aria-label="Map overlay legend">
+                <span><i class="legend-shared"></i> Giver interpretation</span>
+                <span><i class="legend-unique"></i> Follower interpretation</span>
+                <span><i class="legend-active"></i> Selected landmark</span>
+              </div>
+              <p class="overlay-note" id="overlay-note"></p>
+              <details class="landmark-picker" id="landmark-picker"><summary>Find mentions of a landmark <span id="landmark-selection-label"></span></summary><div id="landmark-list"></div></details>
+              <div id="landmark-mentions" class="landmark-mentions"></div>
+            </section>
+
+            <aside class="trace-panel" aria-labelledby="trace-title">
+              <div class="panel-heading trace-heading">
+                <div>
+                  <span class="panel-kicker">Dialogue <b id="current-dialogue-id">q1ec2</b></span>
+                  <h3 id="trace-title">The phrase in its dialogue</h3>
+                </div>
+                <span class="trace-count" id="trace-count">0 REs</span>
+              </div>
+
+              <div class="trace-tools">
+                <label class="search-field">
+                  <span class="sr-only">Search reference expressions</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" /></svg>
+                  <input id="trace-search" type="search" placeholder="Find a phrase or reference ID" />
+                </label>
+                <label class="status-field">
+                  <span class="sr-only">Filter by annotation status</span>
+                  <select id="status-filter">
+                    <option value="all">All states</option>
+                    <option value="misunderstood">Misunderstood</option>
+                    <option value="pending">Pending</option>
+                    <option value="aligned">Aligned</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="reference-navigation"><button type="button" id="previous-ref" aria-label="Previous reference">←</button><label><span class="sr-only">Selected reference expression</span><select id="reference-select"></select></label><button type="button" id="next-ref" aria-label="Next reference">→</button></div>
+              <p class="dialogue-help" id="dialogue-help">Highlighted words are the selected reference. G = giver; F = follower. Line numbers follow the transcript, not alternating speaker turns.</p>
+              <div class="dialogue-excerpt" id="dialogue-excerpt" aria-live="polite"></div>
+            </aside>
+          </div>
+
+          <section class="detail-panel" aria-labelledby="detail-title" aria-live="polite">
+            <div class="detail-context">
+              <span class="detail-id" id="detail-id">Selected reference</span>
+              <blockquote id="detail-expression">—</blockquote>
+              <div class="detail-meta">
+                <span id="detail-speaker"></span>
+                <span class="status-pill" id="detail-status"></span>
+              </div>
+              <p id="status-explanation" class="status-explanation"></p>
+            </div>
+
+            <div class="interpretation-group">
+              <div class="detail-label-row">
+                <h3 id="detail-title">Participant interpretations</h3>
+                <span id="annotation-source-label"></span>
+              </div>
+              <div class="interpretation-cards">
+                <article>
+                  <span><i class="giver-dot"></i> Giver interpretation</span>
+                  <strong id="giver-interpretation">—</strong>
+                  <code id="giver-id"></code>
+                </article>
+                <span class="comparison-symbol" id="comparison-symbol" aria-label="Different interpretations">≠</span>
+                <article>
+                  <span><i class="follower-dot"></i> Follower interpretation</span>
+                  <strong id="follower-interpretation">—</strong>
+                  <code id="follower-id"></code>
+                </article>
+              </div>
+            </div>
+
+          </section>
+          <p id="anchor-note" class="anchor-note" hidden></p>
+          <details class="annotation-inspector"><summary>Inspect annotation fields and source rationale</summary><div id="annotation-fields"></div><p id="annotation-reason"></p><p class="inspector-note">Rationale text is retained from the selected source, not independently verified by this website. Null means the field was not evaluated in the annotation cascade.</p></details>
+          <details class="sins-inspector"><summary>Separate task: does a SINS model judge these interpretations to match?</summary><div class="judgment-group">
+              <div class="detail-label-row">
+                <h3>Interpretation matching · Yes / No</h3>
+                <span>Qwen3-VL-8B-Instruct · dialogue start through current transaction</span>
+              </div>
+              <div class="judgment-cards">
+                <article><span>SINS dataset target</span><strong id="gold-judgment">—</strong></article>
+                <article><span>Dialogue only</span><strong id="text-judgment">—</strong></article>
+                <article class="emphasis"><span>Dialogue + both maps</span><strong id="maps-judgment">—</strong></article>
+              </div>
+              <p>These are matching judgments, not landmark predictions. The SINS target comes from the released GPT-5 annotation layer and does not change when you inspect a human-verified annotation above. A dash means no saved prediction is available.</p>
+            </div></details>
+        </div>
+
+        <div class="browse-corpus-cta"><div><h3>Follow the whole conversation</h3><p>All 128 dialogues · 16 map pairs · 13,077 reference annotations<br />GPT-5 throughout; human-verified annotations for 3 dialogues (504 references).</p></div><a id="browse-corpus" href="./explorer.html">Browse all dialogues &amp; annotations <span aria-hidden="true">↗</span></a></div>
+
+        <div class="rights-note">
+          <span aria-hidden="true">ⓘ</span>
+          <p>
+            <strong>Source and attribution.</strong> Maps and dialogue text are from the HCRC MapTask Corpus, displayed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a> as stated on the <a href="https://groups.inf.ed.ac.uk/maptask/maptasknxt.html" target="_blank" rel="noreferrer">official download page</a>. Maps were converted to PNG and resized; transcripts were reconstructed from timed units and reformatted. Interactive overlays are project additions. Participant interpretations come from GMMT and matching judgments from SINS.
+          </p>
+        </div>
+        <dialog id="map-zoom-dialog" class="map-zoom-dialog" aria-labelledby="map-zoom-title" aria-describedby="map-zoom-help">
+          <div class="map-zoom-heading">
+            <h2 id="map-zoom-title">Enlarged map</h2>
+            <button id="map-zoom-close" type="button" aria-label="Close enlarged map" autofocus>×</button>
+          </div>
+          <button id="map-zoom-image" class="map-zoom-image" type="button" aria-label="Close enlarged map"></button>
+          <p id="map-zoom-help">Click the map again, click outside, or press Esc to close.</p>
+        </dialog>
+      </section>
+
+
+  </main>    <footer>
+      <div class="footer-inner page-width">
+        <div>
+          <strong>GMMT × SINS</strong>
+          <p>Utrecht University · Institute for Language Sciences · ICS / NLP</p>
+        </div>
+        <div class="footer-notes">
+          <p>GMMT annotations and SINS data: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>. SINS code: MIT.</p>
+          <p>HCRC MapTask maps and transcripts: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, per the <a href="https://groups.inf.ed.ac.uk/maptask/maptasknxt.html" target="_blank" rel="noreferrer">official download page</a>; maps converted to PNG/resized, transcripts reconstructed/reformatted, and interactive overlays added.</p>
+          <p><a href="./CREDITS.md">Full source, modification, and file-hash record</a> · <a href="./NOTICE.md">License notices</a></p>
+          <p>Page structure inspired by the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>; this implementation is written from scratch.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/chnln" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://huggingface.co/chnln" target="_blank" rel="noreferrer">Hugging Face ↗</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  <noscript>The corpus browser needs JavaScript. Download the datasets from the project homepage to inspect them separately.</noscript>
+</body></html>

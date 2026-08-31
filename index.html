@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="GMMT and SINS: perspectivist landmark annotations and vision-language evaluation of common ground in asymmetric MapTask dialogue."
+      content="Tracking common ground in dialogue: explore how map differences shape reference, and how vision-language models judge shared understanding. GMMT and SINS."
     />
     <meta name="theme-color" content="#ffffff" />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://gmmt-vis.github.io/" />
+    <link rel="canonical" href="https://chnln.github.io/maptask-vis/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GMMT × SINS" />
-    <meta property="og:title" content="Grounded Misunderstandings &amp; Seeing Is Not Sharing" />
+    <meta property="og:title" content="Tracking Common Ground in Dialogue · GMMT × SINS" />
     <meta
       property="og:description"
       content="Two connected papers on perspectivist reference annotation and vision-language models' estimates of common ground."
     />
-    <meta property="og:url" content="https://gmmt-vis.github.io/" />
-    <meta property="og:image" content="https://gmmt-vis.github.io/static/images/maps/map9g.png" />
+    <meta property="og:url" content="https://chnln.github.io/maptask-vis/" />
+    <meta property="og:image" content="https://chnln.github.io/maptask-vis/static/images/maps/map9g.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <meta name="citation_title" content="Grounded Misunderstandings in Asymmetric Dialogue: A Perspectivist Annotation Scheme for MapTask" />
@@ -31,7 +31,7 @@
     <meta name="citation_doi" content="10.63317/59anbt78wyj7" />
     <meta name="citation_abstract_html_url" content="https://lrec.elra.info/lrec2026-main-392" />
 
-    <title>GMMT × SINS · Perspectivist Common Ground in MapTask</title>
+    <title>Tracking Common Ground in Dialogue · GMMT × SINS</title>
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='16' r='8' fill='none' stroke='%232057bc' stroke-width='2'/%3E%3Ccircle cx='20' cy='16' r='8' fill='none' stroke='%23d24e35' stroke-width='2'/%3E%3C/svg%3E"
@@ -89,6 +89,7 @@
       <nav aria-label="Project navigation">
         <a href="#abstract">Abstract</a>
         <a href="#explorer">Demo</a>
+        <a href="./explorer.html">Browse corpus</a>
         <a href="#datasets">Datasets</a>
         <a href="#publications">Papers</a>
       </nav>
@@ -101,15 +102,16 @@
           <i aria-hidden="true">+</i>
           <span>SIGDIAL 2026</span>
         </p>
-        <h1 id="project-title">Grounded Misunderstandings<br /><em>&amp; Seeing Is Not Sharing</em></h1>
-        <p class="subtitle">Perspectivist reference annotation and vision–language evaluation of common ground in asymmetric dialogue</p>
+        <h1 id="project-title">Tracking Common Ground<br /><em>in Dialogue</em></h1>
+        <p class="subtitle">Who means what—and do they mean the same thing?<br />A perspectivist view of reference and misunderstanding in MapTask.</p>
+        <p class="project-scope">GMMT · participant interpretations <span> / </span> SINS · vision–language model evaluation</p>
 
         <p class="authors">
-          <a href="https://github.com/chnln" target="_blank" rel="noreferrer">Nan Li</a>
+          <a href="https://chnln.github.io/" target="_blank" rel="noreferrer">Nan Li</a>
           <span>·</span>
-          <span>Albert Gatt</span>
+          <a href="https://albertgatt.github.io/" target="_blank" rel="noreferrer">Albert Gatt</a>
           <span>·</span>
-          <span>Massimo Poesio</span>
+          <a href="https://www.uu.nl/staff/MPoesio" target="_blank" rel="noreferrer">Massimo Poesio</a>
         </p>
         <p class="affiliation">Utrecht University · Institute for Language Sciences · ICS / NLP</p>
 
@@ -133,47 +135,47 @@
         </div>
       </section>
 
-      <section class="teaser page-width" aria-label="Two real MapTask participant maps">
-        <div class="teaser-maps">
-          <figure>
-            <div class="teaser-image-wrap giver-accent">
-              <img src="./static/images/maps/map9g.png" alt="Map 9 as seen by the route giver" />
-              <span>Giver</span>
-            </div>
-            <figcaption>map9g · route giver's view</figcaption>
-          </figure>
-          <div class="teaser-question" aria-hidden="true">
-            <span>“the hot wells”</span>
-            <b>≠</b>
-            <span>“hot springs”</span>
+      <section class="discrepancy-gallery page-width" aria-labelledby="discrepancy-title">
+        <div class="gallery-intro"><p class="section-number">The same task. Different maps.</p><h2 id="discrepancy-title">What differs between their views?</h2><p>The giver describes a route. The follower draws it. Neither can see the other's map.</p></div>
+        <div class="gallery-layout">
+          <div class="discrepancy-tabs" role="tablist" aria-label="Landmark relationships" aria-orientation="vertical">
+            <button id="tab-identical" role="tab" aria-selected="false" aria-controls="discrepancy-panel" tabindex="-1" data-discrepancy="identical"><b>01 · Identical</b><span>Same name, same place</span></button>
+            <button id="tab-lexical" role="tab" aria-selected="false" aria-controls="discrepancy-panel" tabindex="-1" data-discrepancy="lexical"><b>02 · Lexical</b><span>One landmark, two names</span></button>
+            <button id="tab-existence" role="tab" aria-selected="false" aria-controls="discrepancy-panel" tabindex="-1" data-discrepancy="existence"><b>03 · Existence</b><span>Present on only one map</span></button>
+            <button id="tab-multiplicity" role="tab" aria-selected="true" aria-controls="discrepancy-panel" tabindex="0" data-discrepancy="multiplicity"><b>04 · Multiplicity</b><span>Two instances versus one</span></button>
           </div>
-          <figure>
-            <div class="teaser-image-wrap follower-accent">
-              <img src="./static/images/maps/map9f.png" alt="Map 9 as seen by the route follower" />
-              <span>Follower</span>
-            </div>
-            <figcaption>map9f · route follower's view</figcaption>
-          </figure>
+          <div id="discrepancy-panel" role="tabpanel" aria-labelledby="tab-multiplicity" tabindex="0"></div>
         </div>
-        <p class="teaser-caption">
-          The participants share a task, not a view. GMMT records what each participant takes a referring expression to mean; SINS asks whether a model can tell when those interpretations diverge.
-        </p>
+        <p class="gallery-footnote">Click either map to enlarge; click again to close. Authentic HCRC maps; coloured outlines are explanatory overlays, not annotation predictions. A map discrepancy creates a challenge for reference—it does not by itself establish a misunderstanding.</p>
       </section>
 
       <section id="abstract" class="paper-section narrow-width" aria-labelledby="abstract-title">
         <h2 id="abstract-title">Abstract</h2>
         <div class="abstract-grid">
-          <div>
-            <p>
-              Collaborative dialogue is often analysed as if each referring expression had one agreed referent. MapTask makes that assumption testable: a route giver and follower work from similar but non-identical maps, so the same words can resolve to different landmarks for each participant.
-            </p>
-            <p>
-              <strong>GMMT</strong> introduces a perspectivist annotation scheme that separately records the giver's intended landmark and the follower's interpreted landmark for every reference expression. <strong>SINS</strong> builds a controlled common-ground judgment task on those paired interpretations and evaluates whether vision–language models distinguish what participants <em>could</em> share from what they have actually established in dialogue.
-            </p>
-          </div>
-          <aside class="research-question">
-            <span>Research question</span>
-            <blockquote>Can a model see both maps without mistaking visual availability for shared understanding?</blockquote>
+          <p class="abstract-intro">
+            Understanding in dialogue is shaped by what each participant knows, sees, and takes an expression to mean. When their information differs, the same words—and even an acknowledgement—can conceal different referents. GMMT and SINS bring together two complementary studies of this problem: a perspectivist annotation resource that preserves speaker intention and addressee interpretation, and a model evaluation built on those paired perspectives. Together, they distinguish what could be shared from what participants have actually established through interaction.
+          </p>
+          <p>
+            <strong>GMMT (LREC 2026)</strong> captures how reference is understood from each participant's perspective. Its annotation scheme records the speaker's intended landmark and the addressee's interpretation, alongside five attributes describing reference and grounding. A scheme-constrained GPT-5 pipeline produces 13,077 annotated expressions across 128 MapTask dialogues, with a human-verified subset for reliability assessment. These annotations distinguish alignment, pending understanding, and silent misunderstanding; reference chains trace how understanding emerges, diverges, and is repaired. After lexical variants are unified, misunderstandings are uncommon overall, but repeated, identically named landmarks remain a recurring source of misalignment.
+          </p>
+          <aside class="research-question gmmt-questions" aria-labelledby="gmmt-questions-title">
+            <span>GMMT · LREC 2026</span>
+            <h3 id="gmmt-questions-title">Research questions</h3>
+            <ol>
+              <li>How can we capture each participant's interpretation of a referring expression?</li>
+              <li>How do these interpretations diverge and become aligned as dialogue unfolds?</li>
+            </ol>
+          </aside>
+          <p>
+            <strong>SINS (SIGDIAL 2026)</strong> builds on GMMT to ask whether vision–language models can judge when the two participants' interpretations match. We systematically vary dialogue context and access to map information. The clearest failure mode, observed in Qwen3-VL-8B-Instruct, concerns how evidence is used: analyses suggest that the model <em>over-weights static map information</em> about what could be shared and <em>under-weights dialogue evidence</em> about what participants have actually established together. Authentic maps can improve aggregate performance while encouraging premature judgments of alignment; textual map descriptions reproduce this tendency. Cross-model differences show that this bias is model-dependent, not universal.
+          </p>
+          <aside class="research-question sins-questions" aria-labelledby="sins-questions-title">
+            <span>SINS · SIGDIAL 2026</span>
+            <h3 id="sins-questions-title">Research questions</h3>
+            <ol>
+              <li>Can models distinguish possible referential overlap from established common ground?</li>
+              <li>How do they weigh map information against evidence from the dialogue?</li>
+            </ol>
           </aside>
         </div>
       </section>
@@ -185,23 +187,36 @@
         <div><strong>2</strong><span>participant interpretations</span></div>
       </section>
 
+      <section class="understanding-states page-width" aria-labelledby="understanding-states-title">
+        <h2 id="understanding-states-title">Three understanding states</h2>
+        <p class="states-intro">Each reference expression receives an <em>understanding state</em>, combining the participants' inferred referents with evidence of grounding in the dialogue. States describe individual references—not whole maps or dialogues. Following successive mentions reveals how understanding is established, remains unresolved, or diverges.</p>
+        <div class="state-cards">
+          <article data-state="aligned"><span class="status-pill aligned">Aligned</span><strong>9,435 <small>72.1%</small></strong><p>Both participants ground the expression to the same or equivalent landmark.</p></article>
+          <article data-state="pending"><span class="status-pill pending">Pending</span><strong>3,403 <small>26.0%</small></strong><p>Grounding is not established in the annotation cascade. This includes existence checks, missing uptake, clarification, and unresolved references—not necessarily a misunderstanding.</p></article>
+          <article data-state="misunderstood"><span class="status-pill misunderstood">Misunderstood</span><strong>239 <small>1.8%</small></strong><p>Both participants ground the expression, but to different landmarks. Apparent agreement can conceal divergent interpretations.</p></article>
+        </div>
+        <p class="states-source">Counts from the 13,077 released GPT-5 annotations, after unifying cross-map lexical variants. Percentages are rounded; these are not full-corpus human-verified counts.</p>
+      </section>
+
       <section id="explorer" class="paper-section demo-section page-width" aria-labelledby="explorer-title">
         <div class="section-heading">
           <span class="section-number">Interactive demo</span>
           <h2 id="explorer-title">One expression, two situated interpretations</h2>
           <p>
-            Choose a released dialogue, read the surrounding excerpt, or click a landmark on either real HCRC MapTask map. The panels link the selected expression to participant-level GMMT annotations and the corresponding SINS model judgment.
+            Click an underlined phrase in the dialogue. The coloured map outlines and the two interpretation cards update for that exact reference. The opening parked-van case is a real exchange (q8nc6), not the papers' simplified dialogue.
           </p>
         </div>
 
+        <div class="reading-guide"><span><b>1</b> Choose a dialogue</span><span><b>2</b> Click a phrase in context</span><span><b>3</b> Compare the two interpretations</span></div>
         <div class="explorer-frame">
           <div class="explorer-toolbar">
             <div class="map-switcher" role="group" aria-label="Choose map pair" id="map-switcher"></div>
+            <div class="corpus-selectors" hidden><label>Map pair<select id="corpus-map"></select></label><label>Dialogue<select id="corpus-dialogue"></select></label></div>
             <div class="annotation-control">
               <span>Interpretation annotation</span>
               <div class="segmented" role="group" aria-label="Choose annotation source">
-                <button type="button" data-source="human" class="is-active" aria-pressed="true">Human-verified</button>
-                <button type="button" data-source="gpt5" aria-pressed="false">GPT-5 annotation</button>
+                <button type="button" data-source="gpt5" class="is-active" aria-pressed="true">GPT-5 annotation</button>
+                <button type="button" data-source="human" aria-pressed="false">Human-verified</button>
               </div>
             </div>
           </div>
@@ -213,40 +228,36 @@
                   <span class="panel-kicker">Map pair <b id="current-map-id">m9</b></span>
                   <h3 id="map-panel-title">Real participant maps</h3>
                 </div>
-                <span class="map-source-badge">HCRC MapTask · click a landmark</span>
+                <span class="map-source-badge">HCRC MapTask · actual maps</span>
               </div>
 
               <div class="map-pair" id="map-pair"></div>
+              <p class="map-zoom-help">Click a landmark's icon or name to find its mentions. Click the map background to enlarge.</p>
 
               <div class="map-legend" aria-label="Map overlay legend">
                 <span><i class="legend-shared"></i> Giver interpretation</span>
                 <span><i class="legend-unique"></i> Follower interpretation</span>
-                <span><i class="legend-active"></i> Clickable hotspot</span>
+                <span><i class="legend-active"></i> Selected landmark</span>
               </div>
+              <p class="overlay-note" id="overlay-note"></p>
+              <details class="landmark-picker" id="landmark-picker"><summary>Find mentions of a landmark <span id="landmark-selection-label"></span></summary><div id="landmark-list"></div></details>
+              <div id="landmark-mentions" class="landmark-mentions"></div>
             </section>
 
             <aside class="trace-panel" aria-labelledby="trace-title">
               <div class="panel-heading trace-heading">
                 <div>
                   <span class="panel-kicker">Dialogue <b id="current-dialogue-id">q1ec2</b></span>
-                  <h3 id="trace-title">Curated real dialogue excerpt</h3>
+                  <h3 id="trace-title">The phrase in its dialogue</h3>
                 </div>
                 <span class="trace-count" id="trace-count">0 REs</span>
-              </div>
-
-              <div class="dialogue-excerpt" id="dialogue-excerpt" aria-live="polite">
-                <p class="excerpt-placeholder">Select a reference expression to reveal its local dialogue context.</p>
-              </div>
-
-              <div class="trace-divider">
-                <span>Reference expressions in this dialogue</span>
               </div>
 
               <div class="trace-tools">
                 <label class="search-field">
                   <span class="sr-only">Search reference expressions</span>
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" /></svg>
-                  <input id="trace-search" type="search" placeholder="Search expression or ID" />
+                  <input id="trace-search" type="search" placeholder="Find a phrase or reference ID" />
                 </label>
                 <label class="status-field">
                   <span class="sr-only">Filter by annotation status</span>
@@ -259,92 +270,104 @@
                 </label>
               </div>
 
-              <div class="trace-list" id="trace-list" aria-live="polite"></div>
+              <div class="reference-navigation"><button type="button" id="previous-ref" aria-label="Previous reference">←</button><label><span class="sr-only">Selected reference expression</span><select id="reference-select"></select></label><button type="button" id="next-ref" aria-label="Next reference">→</button></div>
+              <p class="dialogue-help" id="dialogue-help">Highlighted words are the selected reference. G = giver; F = follower. Line numbers follow the transcript, not alternating speaker turns.</p>
+              <div class="dialogue-excerpt" id="dialogue-excerpt" aria-live="polite"></div>
             </aside>
           </div>
 
           <section class="detail-panel" aria-labelledby="detail-title" aria-live="polite">
             <div class="detail-context">
-              <span class="detail-id" id="detail-id">q1ec2.ref.23</span>
-              <blockquote id="detail-expression">“the hot wells”</blockquote>
+              <span class="detail-id" id="detail-id">Selected reference</span>
+              <blockquote id="detail-expression">—</blockquote>
               <div class="detail-meta">
-                <span id="detail-speaker">Giver · utterance 49</span>
-                <span class="status-pill misunderstood" id="detail-status">Misunderstood</span>
+                <span id="detail-speaker"></span>
+                <span class="status-pill" id="detail-status"></span>
               </div>
+              <p id="status-explanation" class="status-explanation"></p>
             </div>
 
             <div class="interpretation-group">
               <div class="detail-label-row">
                 <h3 id="detail-title">Participant interpretations</h3>
-                <span id="annotation-source-label">Human-verified gold</span>
+                <span id="annotation-source-label"></span>
               </div>
               <div class="interpretation-cards">
                 <article>
                   <span><i class="giver-dot"></i> Giver interpretation</span>
-                  <strong id="giver-interpretation">Hot wells</strong>
-                  <code id="giver-id">m9_hot_wells@g</code>
+                  <strong id="giver-interpretation">—</strong>
+                  <code id="giver-id"></code>
                 </article>
                 <span class="comparison-symbol" id="comparison-symbol" aria-label="Different interpretations">≠</span>
                 <article>
                   <span><i class="follower-dot"></i> Follower interpretation</span>
-                  <strong id="follower-interpretation">Hot springs</strong>
-                  <code id="follower-id">m9_hot_springs@f</code>
+                  <strong id="follower-interpretation">—</strong>
+                  <code id="follower-id"></code>
                 </article>
               </div>
             </div>
 
-            <div class="judgment-group">
+          </section>
+          <p id="anchor-note" class="anchor-note" hidden></p>
+          <details class="annotation-inspector"><summary>Inspect annotation fields and source rationale</summary><div id="annotation-fields"></div><p id="annotation-reason"></p><p class="inspector-note">Rationale text is retained from the selected source, not independently verified by this website. Null means the field was not evaluated in the annotation cascade.</p></details>
+          <details class="sins-inspector"><summary>Separate task: does a SINS model judge these interpretations to match?</summary><div class="judgment-group">
               <div class="detail-label-row">
-                <h3>SINS common-ground judgment</h3>
-                <span>Qwen3-VL-8B-Instruct · startT</span>
+                <h3>Interpretation matching · Yes / No</h3>
+                <span>Qwen3-VL-8B-Instruct · dialogue start through current transaction</span>
               </div>
               <div class="judgment-cards">
-                <article><span>Gold</span><strong id="gold-judgment">No</strong></article>
-                <article><span>Text only</span><strong id="text-judgment">No</strong></article>
-                <article class="emphasis"><span>Both maps</span><strong id="maps-judgment">Yes</strong></article>
+                <article><span>SINS dataset target</span><strong id="gold-judgment">—</strong></article>
+                <article><span>Dialogue only</span><strong id="text-judgment">—</strong></article>
+                <article class="emphasis"><span>Dialogue + both maps</span><strong id="maps-judgment">—</strong></article>
               </div>
-              <p>SINS predicts whether the two interpretations match; participant landmark IDs come from the selected GMMT annotation source.</p>
-            </div>
-          </section>
+              <p>These are matching judgments, not landmark predictions. The SINS target comes from the released GPT-5 annotation layer and does not change when you inspect a human-verified annotation above. A dash means no saved prediction is available.</p>
+            </div></details>
         </div>
+
+        <div class="browse-corpus-cta"><div><h3>Follow the whole conversation</h3><p>All 128 dialogues · 16 map pairs · 13,077 reference annotations<br />GPT-5 throughout; human-verified annotations for 3 dialogues (504 references).</p></div><a id="browse-corpus" href="./explorer.html">Browse all dialogues &amp; annotations <span aria-hidden="true">↗</span></a></div>
 
         <div class="rights-note">
           <span aria-hidden="true">ⓘ</span>
           <p>
-            <strong>Source and attribution.</strong> Map images and short dialogue excerpts are from the HCRC MapTask Corpus and are displayed with attribution under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, as stated on the current official download page. Maps were converted to PNG and resized; dialogue excerpts were selected and reformatted; the interactive overlays are project additions. Participant interpretations come from GMMT and model judgments from SINS.
+            <strong>Source and attribution.</strong> Maps and dialogue text are from the HCRC MapTask Corpus, displayed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a> as stated on the <a href="https://groups.inf.ed.ac.uk/maptask/maptasknxt.html" target="_blank" rel="noreferrer">official download page</a>. Maps were converted to PNG and resized; transcripts were reconstructed from timed units and reformatted. Interactive overlays are project additions. Participant interpretations come from GMMT and matching judgments from SINS.
           </p>
         </div>
+        <dialog id="map-zoom-dialog" class="map-zoom-dialog" aria-labelledby="map-zoom-title" aria-describedby="map-zoom-help">
+          <div class="map-zoom-heading">
+            <h2 id="map-zoom-title">Enlarged map</h2>
+            <button id="map-zoom-close" type="button" aria-label="Close enlarged map" autofocus>×</button>
+          </div>
+          <button id="map-zoom-image" class="map-zoom-image" type="button" aria-label="Close enlarged map"></button>
+          <p id="map-zoom-help">Click the map again, click outside, or press Esc to close.</p>
+        </dialog>
       </section>
 
-      <section id="results" class="paper-section narrow-width" aria-labelledby="results-title">
+      <section id="results" class="paper-section page-width" aria-labelledby="results-title">
         <div class="section-heading compact">
-          <span class="section-number">Main result</span>
-          <h2 id="results-title">Seeing more does not guarantee understanding more</h2>
+          <span class="section-number">SINS · SIGDIAL 2026</span>
+          <h2 id="results-title">Potential common ground is not established common ground</h2>
+          <p>The interesting failure is how the model weighs evidence—not simply whether adding maps improves its score.</p>
         </div>
-        <div class="result-grid">
-          <div class="result-copy">
-            <p>
-              Access to authentic maps improves overall macro-F1 for Qwen3-VL-8B under the primary <em>startT</em> setting. Yet it also shifts predictions toward agreement: the model often treats visually available common ground as if participants had already established it in dialogue.
-            </p>
-            <ul>
-              <li>GMMT exposes disagreement that a single-reference annotation would erase.</li>
-              <li>SINS separates dialogue evidence from access to one or both maps.</li>
-              <li>The map condition raises the model's predicted “Yes” rate by 21.2 points.</li>
-            </ul>
-          </div>
-          <div class="finding-chart" role="img" aria-label="Qwen3-VL-8B predicted Yes rate rises from 51.5 percent with text only to 72.7 percent with both maps">
-            <div class="chart-title"><span>Predicted “Yes” rate</span><b>Qwen3-VL-8B · startT</b></div>
-            <div class="bar-row">
-              <div class="bar-label"><span>Text only</span><b>51.5%</b></div>
-              <div class="bar-track"><span style="--value: 51.5%"></span></div>
-            </div>
-            <div class="bar-row highlighted">
-              <div class="bar-label"><span>Both maps</span><b>72.7%</b></div>
-              <div class="bar-track"><span style="--value: 72.7%"></span></div>
-            </div>
-            <p><strong>+21.2 pp</strong> toward an alignment judgment</p>
+        <div class="evidence-balance">
+          <article class="overweight"><span>Over-weighted</span><h3>What the maps make available</h3><p>Landmark names, locations, and co-presence offer static clues to what the participants <em>could</em> be referring to.</p><strong>Potential referential overlap</strong></article>
+          <article class="underweight"><span>Under-weighted</span><h3>What the dialogue establishes</h3><p>Uptake, confirmation, clarification, and repair reveal whether the participants have grounded a reference—and in which landmark.</p><strong>Interactional, incremental grounding</strong></article>
+        </div>
+        <p class="evidence-interpretation">This is a behavioural interpretation of the controlled experiments, not a direct measurement of attention weights. The clearest evidence is from Qwen3-VL-8B-Instruct.</p>
+        <div class="tradeoff-panel">
+          <div><p class="section-number">The hidden trade-off</p><h3>Better at saying “same”.<br />Worse at noticing “not yet”.</h3><p>With both maps, macro-F1 improves from .591 to .671. But this gain conceals a loss in detecting non-alignment, especially pending cases. The smaller drop on misunderstood cases alone is not statistically significant for both-maps; single-map conditions show significant drops.</p></div>
+          <div class="recall-comparison" role="img" aria-label="Aligned recall rises from 59.0 to 82.2 percent; non-aligned recall falls from 67.7 to 51.8 percent with both maps. Qwen3-VL-8B-Instruct, startT, 13077 references.">
+            <div class="comparison-key"><span>Dialogue only</span><span>+ Both maps</span></div>
+            <div class="recall-row"><b>Aligned · Yes</b><div><i style="width:59%">59.0%</i><i style="width:82.2%">82.2%</i></div><strong class="gain">+23.2 pp</strong></div>
+            <div class="recall-row"><b>Non-aligned · No</b><div><i style="width:67.7%">67.7%</i><i style="width:51.8%">51.8%</i></div><strong class="loss">−15.9 pp</strong></div>
+            <p>Recall within each target class · same model and dialogue window (startT) · n = 13,077</p>
           </div>
         </div>
+        <div class="evidence-grid">
+          <article><span>01 / Content, not just vision</span><h3>Describing a map has a similar effect.</h3><p>Textual landmark descriptions reproduce the alignment shift. Blank and shuffled maps instead push the model toward “No”. Task-relevant content, not the mere presence of an image, drives the pattern.</p></article>
+          <article><span>02 / Confidence, not only answer bias</span><h3>More certain—even when agreement is absent.</h3><p>With both maps, calibration error on non-aligned cases rises from .235 to .403, while it improves on aligned cases. The model makes confident errors precisely where grounding is missing or divergent.</p></article>
+          <article><span>03 / History, not just repeated names</span><h3>Mentioning it again is not confirming it.</h3><p>Alignment predictions rise with repeated mentions, though longer chains also contain more aligned cases. Broader dialogue context helps less when maps are present: +.078 macro-F1, versus +.152 without maps (curL → startT). Together, these patterns are consistent with an over-reliance on static cues.</p></article>
+        </div>
+        <p class="results-caveat">Scope matters: this is an overhearer task, not an interactive agent. The bias is not universal across VLMs; Qwen3-VL-4B shifts in the opposite direction. A higher “Yes” rate alone is not proof of over-alignment—the recall trade-off and class-specific calibration are crucial. <a href="https://aclanthology.org/2026.sigdial-1.49/" target="_blank" rel="noreferrer">Read the evidence and limitations in SINS ↗</a></p>
       </section>
 
       <section id="datasets" class="paper-section page-width" aria-labelledby="datasets-title">
@@ -474,7 +497,7 @@
         </div>
         <div class="footer-notes">
           <p>GMMT annotations and SINS data: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>. SINS code: MIT.</p>
-          <p>HCRC MapTask maps and quoted excerpts: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, per the <a href="https://groups.inf.ed.ac.uk/maptask/maptasknxt.html" target="_blank" rel="noreferrer">official download page</a>; maps converted to PNG/resized, excerpts reformatted, and interactive overlays added.</p>
+          <p>HCRC MapTask maps and transcripts: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, per the <a href="https://groups.inf.ed.ac.uk/maptask/maptasknxt.html" target="_blank" rel="noreferrer">official download page</a>; maps converted to PNG/resized, transcripts reconstructed/reformatted, and interactive overlays added.</p>
           <p><a href="./CREDITS.md">Full source, modification, and file-hash record</a> · <a href="./NOTICE.md">License notices</a></p>
           <p>Page structure inspired by the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>; this implementation is written from scratch.</p>
         </div>

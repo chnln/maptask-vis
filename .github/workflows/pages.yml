@@ -22,7 +22,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate pages and validate
+        run: |
+          node --check app.js
+          node --check scripts/build-demo-data.mjs
+          node --check scripts/build-preview.mjs
+          node --check scripts/build-site.mjs
+          node scripts/build-preview.mjs
+          node scripts/check-site.mjs
+          git diff --exit-code -- explorer.html data/map-image-hashes.json
+          node scripts/build-site.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -30,7 +46,7 @@ jobs:
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
