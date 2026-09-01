@@ -2901,16 +2901,8 @@
           "utteranceId": 50,
           "lineNumber": 58,
           "text": "okay",
-          "spans": [
-            {
-              "id": "q1ec2.ref.26",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "refIds": [
-            "q1ec2.ref.26"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -2933,16 +2925,8 @@
           "utteranceId": 50,
           "lineNumber": 60,
           "text": "okay",
-          "spans": [
-            {
-              "id": "q1ec2.ref.26",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "refIds": [
-            "q1ec2.ref.26"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -5155,7 +5139,7 @@
           "utteranceId": 49,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "the okay hot okay springs",
+          "expression": "the hot springs",
           "conceptId": "m9_hot_wells",
           "annotations": {
             "gpt5": {
@@ -5193,6 +5177,24 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "the okay hot okay springs",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1ec2.tu.336",
+                "speaker": "follower",
+                "utteranceId": 50,
+                "text": "okay"
+              },
+              {
+                "id": "q1ec2.tu.338",
+                "speaker": "follower",
+                "utteranceId": 50,
+                "text": "okay"
+              }
+            ]
           }
         },
         {
@@ -8040,16 +8042,8 @@
           "utteranceId": 54,
           "lineNumber": 62,
           "text": "yeah",
-          "spans": [
-            {
-              "id": "q1nc3.ref.35",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.35"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -8316,16 +8310,8 @@
           "utteranceId": 70,
           "lineNumber": 81,
           "text": "s--",
-          "spans": [
-            {
-              "id": "q1nc3.ref.50",
-              "start": 0,
-              "end": 3
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.50"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -8450,16 +8436,8 @@
           "utteranceId": 77,
           "lineNumber": 91,
           "text": "and",
-          "spans": [
-            {
-              "id": "q1nc3.ref.55",
-              "start": 0,
-              "end": 3
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.55"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -8482,16 +8460,8 @@
           "utteranceId": 77,
           "lineNumber": 93,
           "text": "right",
-          "spans": [
-            {
-              "id": "q1nc3.ref.55",
-              "start": 0,
-              "end": 5
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.55"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -8808,16 +8778,8 @@
           "utteranceId": 97,
           "lineNumber": 120,
           "text": "don't",
-          "spans": [
-            {
-              "id": "q1nc3.ref.66",
-              "start": 0,
-              "end": 5
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.66"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -10292,16 +10254,8 @@
           "utteranceId": 189,
           "lineNumber": 255,
           "text": "uh-huh",
-          "spans": [
-            {
-              "id": "q1nc3.ref.117",
-              "start": 0,
-              "end": 6
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.117"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -10852,16 +10806,8 @@
           "utteranceId": 223,
           "lineNumber": 308,
           "text": "uh-huh",
-          "spans": [
-            {
-              "id": "q1nc3.ref.131",
-              "start": 0,
-              "end": 6
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.131"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -11298,16 +11244,8 @@
           "utteranceId": 249,
           "lineNumber": 343,
           "text": "very",
-          "spans": [
-            {
-              "id": "q1nc3.ref.152",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.152"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -11410,16 +11348,8 @@
           "utteranceId": 251,
           "lineNumber": 353,
           "text": "a",
-          "spans": [
-            {
-              "id": "q1nc3.ref.154",
-              "start": 0,
-              "end": 1
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.154"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -11514,16 +11444,8 @@
           "utteranceId": 257,
           "lineNumber": 362,
           "text": "you're going",
-          "spans": [
-            {
-              "id": "q1nc3.ref.156",
-              "start": 0,
-              "end": 12
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.156"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -11818,16 +11740,8 @@
           "utteranceId": 280,
           "lineNumber": 391,
           "text": "where",
-          "spans": [
-            {
-              "id": "q1nc3.ref.163",
-              "start": 0,
-              "end": 5
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.163"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -12398,16 +12312,8 @@
           "utteranceId": 313,
           "lineNumber": 441,
           "text": "left-hand",
-          "spans": [
-            {
-              "id": "q1nc3.ref.185",
-              "start": 0,
-              "end": 9
-            }
-          ],
-          "refIds": [
-            "q1nc3.ref.185"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -14447,7 +14353,7 @@
           "utteranceId": 53,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "carved yeah wooden pole",
+          "expression": "carved wooden pole",
           "conceptId": "m6_carved_wooden_pole",
           "annotations": {
             "gpt5": {
@@ -14485,6 +14391,18 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "carved yeah wooden pole",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.285",
+                "speaker": "follower",
+                "utteranceId": 54,
+                "text": "yeah"
+              }
+            ]
           }
         },
         {
@@ -15122,7 +15040,7 @@
           "utteranceId": 69,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "fast s-- flowing river",
+          "expression": "fast flowing river",
           "conceptId": "m6_fast_flowing_river",
           "annotations": {
             "gpt5": {
@@ -15160,6 +15078,18 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "fast s-- flowing river",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.377",
+                "speaker": "follower",
+                "utteranceId": 70,
+                "text": "s--"
+              }
+            ]
           }
         },
         {
@@ -15347,7 +15277,7 @@
           "utteranceId": 76,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the fast and running right creek",
+          "expression": "the fast running creek",
           "conceptId": "m6_fast_flowing_river",
           "annotations": {
             "gpt5": {
@@ -15385,6 +15315,24 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "the fast and running right creek",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.450",
+                "speaker": "giver",
+                "utteranceId": 77,
+                "text": "and"
+              },
+              {
+                "id": "q1nc3.tu.452",
+                "speaker": "giver",
+                "utteranceId": 77,
+                "text": "right"
+              }
+            ]
           }
         },
         {
@@ -15842,7 +15790,7 @@
           "utteranceId": 98,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the don't graveyard",
+          "expression": "the graveyard",
           "conceptId": "m6_graveyard",
           "annotations": {
             "gpt5": {
@@ -15880,6 +15828,18 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "the don't graveyard",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.544",
+                "speaker": "giver",
+                "utteranceId": 97,
+                "text": "don't"
+              }
+            ]
           }
         },
         {
@@ -18137,7 +18097,7 @@
           "utteranceId": 188,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the uh-huh walled city",
+          "expression": "the walled city",
           "conceptId": "m6_walled_city",
           "annotations": {
             "gpt5": {
@@ -18175,6 +18135,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the uh-huh walled city",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1251",
+                "speaker": "giver",
+                "utteranceId": 189,
+                "text": "uh-huh"
+              }
+            ]
           }
         },
         {
@@ -18767,7 +18739,7 @@
           "utteranceId": 220,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the carved wooden uh-huh pole",
+          "expression": "the carved wooden pole",
           "conceptId": "m6_carved_wooden_pole",
           "annotations": {
             "gpt5": {
@@ -18805,6 +18777,18 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "the carved wooden uh-huh pole",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1455",
+                "speaker": "giver",
+                "utteranceId": 223,
+                "text": "uh-huh"
+              }
+            ]
           }
         },
         {
@@ -19712,7 +19696,7 @@
           "utteranceId": 248,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the flat very rocks",
+          "expression": "the flat rocks",
           "conceptId": "m6_flat_rocks",
           "annotations": {
             "gpt5": {
@@ -19750,6 +19734,18 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the flat very rocks",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1645",
+                "speaker": "giver",
+                "utteranceId": 249,
+                "text": "very"
+              }
+            ]
           }
         },
         {
@@ -19802,7 +19798,7 @@
           "utteranceId": 252,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the flat a rocks",
+          "expression": "the flat rocks",
           "conceptId": "m6_flat_rocks",
           "annotations": {
             "gpt5": {
@@ -19840,6 +19836,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the flat a rocks",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1664",
+                "speaker": "giver",
+                "utteranceId": 251,
+                "text": "a"
+              }
+            ]
           }
         },
         {
@@ -19892,7 +19900,7 @@
           "utteranceId": 258,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "saloon you're going bar",
+          "expression": "saloon bar",
           "conceptId": "m6_saloon_bar",
           "annotations": {
             "gpt5": {
@@ -19930,6 +19938,24 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "saloon you're going bar",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1692",
+                "speaker": "giver",
+                "utteranceId": 257,
+                "text": "you're"
+              },
+              {
+                "id": "q1nc3.tu.1693",
+                "speaker": "giver",
+                "utteranceId": 257,
+                "text": "going"
+              }
+            ]
           }
         },
         {
@@ -20207,7 +20233,7 @@
           "utteranceId": 281,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "a where cattle ranch",
+          "expression": "a cattle ranch",
           "conceptId": "m6_cattle_ranch",
           "annotations": {
             "gpt5": {
@@ -20245,6 +20271,18 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "a where cattle ranch",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1783",
+                "speaker": "follower",
+                "utteranceId": 280,
+                "text": "where"
+              }
+            ]
           }
         },
         {
@@ -21197,7 +21235,7 @@
           "utteranceId": 312,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the left-hand f--",
+          "expression": "the f--",
           "conceptId": "m6_fort",
           "annotations": {
             "gpt5": {
@@ -21235,6 +21273,18 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the left-hand f--",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc3.tu.1963",
+                "speaker": "giver",
+                "utteranceId": 313,
+                "text": "left-hand"
+              }
+            ]
           }
         },
         {
@@ -22461,16 +22511,8 @@
           "utteranceId": 32,
           "lineNumber": 44,
           "text": "uh-huh",
-          "spans": [
-            {
-              "id": "q1nc7.ref.24",
-              "start": 0,
-              "end": 6
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.24"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -22863,16 +22905,8 @@
           "utteranceId": 54,
           "lineNumber": 72,
           "text": "uh-huh",
-          "spans": [
-            {
-              "id": "q1nc7.ref.46",
-              "start": 0,
-              "end": 6
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.46"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -24033,16 +24067,8 @@
           "utteranceId": 112,
           "lineNumber": 177,
           "text": "where",
-          "spans": [
-            {
-              "id": "q1nc7.ref.87",
-              "start": 0,
-              "end": 5
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.87"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -24321,18 +24347,12 @@
           "text": "say the fenc--",
           "spans": [
             {
-              "id": "q1nc7.ref.96",
-              "start": 0,
-              "end": 14
-            },
-            {
               "id": "q1nc7.ref.97",
               "start": 4,
               "end": 14
             }
           ],
           "refIds": [
-            "q1nc7.ref.96",
             "q1nc7.ref.97"
           ]
         },
@@ -24459,18 +24479,12 @@
           "text": "abandoned",
           "spans": [
             {
-              "id": "q1nc7.ref.104",
-              "start": 0,
-              "end": 9
-            },
-            {
               "id": "q1nc7.ref.105",
               "start": 0,
               "end": 9
             }
           ],
           "refIds": [
-            "q1nc7.ref.104",
             "q1nc7.ref.105"
           ]
         },
@@ -24484,16 +24498,10 @@
               "id": "q1nc7.ref.104",
               "start": 0,
               "end": 7
-            },
-            {
-              "id": "q1nc7.ref.105",
-              "start": 0,
-              "end": 7
             }
           ],
           "refIds": [
-            "q1nc7.ref.104",
-            "q1nc7.ref.105"
+            "q1nc7.ref.104"
           ]
         },
         {
@@ -25675,16 +25683,8 @@
           "utteranceId": 214,
           "lineNumber": 331,
           "text": "point",
-          "spans": [
-            {
-              "id": "q1nc7.ref.133",
-              "start": 0,
-              "end": 5
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.133"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -26427,16 +26427,8 @@
           "utteranceId": 254,
           "lineNumber": 399,
           "text": "is",
-          "spans": [
-            {
-              "id": "q1nc7.ref.158",
-              "start": 0,
-              "end": 2
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.158"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "follower",
@@ -26781,16 +26773,8 @@
           "utteranceId": 269,
           "lineNumber": 427,
           "text": "is",
-          "spans": [
-            {
-              "id": "q1nc7.ref.173",
-              "start": 0,
-              "end": 2
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.173"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -26815,18 +26799,12 @@
           "text": "it anyway",
           "spans": [
             {
-              "id": "q1nc7.ref.173",
-              "start": 0,
-              "end": 9
-            },
-            {
               "id": "q1nc7.ref.174",
               "start": 0,
               "end": 2
             }
           ],
           "refIds": [
-            "q1nc7.ref.173",
             "q1nc7.ref.174"
           ]
         },
@@ -26959,16 +26937,8 @@
           "utteranceId": 277,
           "lineNumber": 439,
           "text": "have",
-          "spans": [
-            {
-              "id": "q1nc7.ref.181",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "refIds": [
-            "q1nc7.ref.181"
-          ]
+          "spans": [],
+          "refIds": []
         },
         {
           "speaker": "giver",
@@ -27455,18 +27425,12 @@
           "text": "the word",
           "spans": [
             {
-              "id": "q1nc7.ref.203",
-              "start": 0,
-              "end": 8
-            },
-            {
               "id": "q1nc7.ref.204",
               "start": 0,
               "end": 8
             }
           ],
           "refIds": [
-            "q1nc7.ref.203",
             "q1nc7.ref.204"
           ]
         },
@@ -27480,16 +27444,10 @@
               "id": "q1nc7.ref.203",
               "start": 0,
               "end": 4
-            },
-            {
-              "id": "q1nc7.ref.204",
-              "start": 0,
-              "end": 4
             }
           ],
           "refIds": [
-            "q1nc7.ref.203",
-            "q1nc7.ref.204"
+            "q1nc7.ref.203"
           ]
         },
         {
@@ -27645,18 +27603,12 @@
           "text": "the",
           "spans": [
             {
-              "id": "q1nc7.ref.210",
-              "start": 0,
-              "end": 3
-            },
-            {
               "id": "q1nc7.ref.211",
               "start": 0,
               "end": 3
             }
           ],
           "refIds": [
-            "q1nc7.ref.210",
             "q1nc7.ref.211"
           ]
         },
@@ -27670,16 +27622,10 @@
               "id": "q1nc7.ref.210",
               "start": 0,
               "end": 3
-            },
-            {
-              "id": "q1nc7.ref.211",
-              "start": 0,
-              "end": 3
             }
           ],
           "refIds": [
-            "q1nc7.ref.210",
-            "q1nc7.ref.211"
+            "q1nc7.ref.210"
           ]
         },
         {
@@ -29343,7 +29289,7 @@
           "utteranceId": 31,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the old uh-huh mill",
+          "expression": "the old mill",
           "conceptId": "m12_old_mill",
           "annotations": {
             "gpt5": {
@@ -29381,6 +29327,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the old uh-huh mill",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.229",
+                "speaker": "giver",
+                "utteranceId": 32,
+                "text": "uh-huh"
+              }
+            ]
           }
         },
         {
@@ -30333,7 +30291,7 @@
           "utteranceId": 53,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the fenced uh-huh meadow",
+          "expression": "the fenced meadow",
           "conceptId": "m12_fenced_meadow",
           "annotations": {
             "gpt5": {
@@ -30371,6 +30329,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the fenced uh-huh meadow",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.442",
+                "speaker": "giver",
+                "utteranceId": 54,
+                "text": "uh-huh"
+              }
+            ]
           }
         },
         {
@@ -32178,7 +32148,7 @@
           "utteranceId": 111,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the abandoned where cott--",
+          "expression": "the abandoned cott--",
           "conceptId": "m12_abandoned_cottage",
           "annotations": {
             "gpt5": {
@@ -32216,6 +32186,18 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the abandoned where cott--",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.979",
+                "speaker": "giver",
+                "utteranceId": 112,
+                "text": "where"
+              }
+            ]
           }
         },
         {
@@ -32583,7 +32565,7 @@
           "utteranceId": 129,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the west say the fenc-- lake",
+          "expression": "the west lake",
           "conceptId": "m12_west_lake",
           "annotations": {
             "gpt5": {
@@ -32621,6 +32603,30 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the west say the fenc-- lake",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.1097",
+                "speaker": "giver",
+                "utteranceId": 128,
+                "text": "say"
+              },
+              {
+                "id": "q1nc7.tu.1098",
+                "speaker": "giver",
+                "utteranceId": 128,
+                "text": "the"
+              },
+              {
+                "id": "q1nc7.tu.1099",
+                "speaker": "giver",
+                "utteranceId": 128,
+                "text": "fenc--"
+              }
+            ]
           }
         },
         {
@@ -32943,7 +32949,7 @@
           "utteranceId": 135,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the abandoned abandoned cottage",
+          "expression": "the abandoned cottage",
           "conceptId": "m12_abandoned_cottage",
           "annotations": {
             "gpt5": {
@@ -32981,6 +32987,18 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the abandoned abandoned cottage",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.1159",
+                "speaker": "giver",
+                "utteranceId": 136,
+                "text": "abandoned"
+              }
+            ]
           }
         },
         {
@@ -32988,7 +33006,7 @@
           "utteranceId": 136,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "abandoned cottage cottage",
+          "expression": "abandoned cottage",
           "conceptId": "m12_abandoned_cottage",
           "annotations": {
             "gpt5": {
@@ -33026,6 +33044,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "abandoned cottage cottage",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.1160",
+                "speaker": "follower",
+                "utteranceId": 137,
+                "text": "cottage"
+              }
+            ]
           }
         },
         {
@@ -34248,7 +34278,7 @@
           "utteranceId": 215,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "farm point land",
+          "expression": "farm land",
           "conceptId": "m12_farmed_land",
           "annotations": {
             "gpt5": {
@@ -34286,6 +34316,18 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "farm point land",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.1762",
+                "speaker": "giver",
+                "utteranceId": 214,
+                "text": "point"
+              }
+            ]
           }
         },
         {
@@ -35373,7 +35415,7 @@
           "utteranceId": 255,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the golf is course",
+          "expression": "the golf course",
           "conceptId": "m12_golf_course",
           "annotations": {
             "gpt5": {
@@ -35411,6 +35453,18 @@
               "textOnly": "No",
               "bothMaps": "No"
             }
+          },
+          "releasedExpression": "the golf is course",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2082",
+                "speaker": "giver",
+                "utteranceId": 254,
+                "text": "is"
+              }
+            ]
           }
         },
         {
@@ -36048,7 +36102,7 @@
           "utteranceId": 270,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "the is vertical it anyway bit",
+          "expression": "the vertical bit",
           "conceptId": "m12_west_lake",
           "annotations": {
             "gpt5": {
@@ -36086,6 +36140,30 @@
               "textOnly": "No",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the is vertical it anyway bit",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2197",
+                "speaker": "follower",
+                "utteranceId": 269,
+                "text": "is"
+              },
+              {
+                "id": "q1nc7.tu.2199",
+                "speaker": "follower",
+                "utteranceId": 269,
+                "text": "it"
+              },
+              {
+                "id": "q1nc7.tu.2200",
+                "speaker": "follower",
+                "utteranceId": 269,
+                "text": "anyway"
+              }
+            ]
           }
         },
         {
@@ -36363,7 +36441,7 @@
           "utteranceId": 278,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "west have lake",
+          "expression": "west lake",
           "conceptId": "m12_west_lake",
           "annotations": {
             "gpt5": {
@@ -36401,6 +36479,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "west have lake",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2251",
+                "speaker": "follower",
+                "utteranceId": 277,
+                "text": "have"
+              }
+            ]
           }
         },
         {
@@ -37353,7 +37443,7 @@
           "utteranceId": 307,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the \"e\" in the word the word la--",
+          "expression": "the \"e\" in the word la--",
           "conceptId": "m12_east_lake",
           "annotations": {
             "gpt5": {
@@ -37391,6 +37481,24 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the \"e\" in the word the word la--",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2465",
+                "speaker": "giver",
+                "utteranceId": 308,
+                "text": "the"
+              },
+              {
+                "id": "q1nc7.tu.2466",
+                "speaker": "giver",
+                "utteranceId": 308,
+                "text": "word"
+              }
+            ]
           }
         },
         {
@@ -37398,7 +37506,7 @@
           "utteranceId": 308,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "the word la-- \"e\"",
+          "expression": "the word \"e\"",
           "conceptId": "m12_east_lake",
           "annotations": {
             "gpt5": {
@@ -37436,6 +37544,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the word la-- \"e\"",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2467",
+                "speaker": "follower",
+                "utteranceId": 307,
+                "text": "la--"
+              }
+            ]
           }
         },
         {
@@ -37668,7 +37788,7 @@
           "utteranceId": 317,
           "speaker": "follower",
           "addressee": "giver",
-          "expression": "the the \"e\"",
+          "expression": "the \"e\"",
           "conceptId": "m12_east_lake",
           "annotations": {
             "gpt5": {
@@ -37706,6 +37826,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the the \"e\"",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2504",
+                "speaker": "giver",
+                "utteranceId": 316,
+                "text": "the"
+              }
+            ]
           }
         },
         {
@@ -37713,7 +37845,7 @@
           "utteranceId": 316,
           "speaker": "giver",
           "addressee": "follower",
-          "expression": "the \"e\" \"e\"",
+          "expression": "the \"e\"",
           "conceptId": "m12_east_lake",
           "annotations": {
             "gpt5": {
@@ -37751,6 +37883,18 @@
               "textOnly": "Yes",
               "bothMaps": "Yes"
             }
+          },
+          "releasedExpression": "the \"e\" \"e\"",
+          "displayCorrection": {
+            "type": "cross-speaker-timed-units",
+            "excludedTimedUnits": [
+              {
+                "id": "q1nc7.tu.2505",
+                "speaker": "follower",
+                "utteranceId": 317,
+                "text": "\"e\""
+              }
+            ]
           }
         },
         {
