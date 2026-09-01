@@ -96,8 +96,8 @@ python3 -m http.server 4173 --bind 127.0.0.1
 
 Open [http://127.0.0.1:4173/](http://127.0.0.1:4173/), or
 [the corpus browser](http://127.0.0.1:4173/explorer.html). Press Ctrl+C in the
-terminal to stop serving. Cloning requires repository access while the source
-repository is private; the published Pages website is publicly accessible.
+terminal to stop serving. Both the source repository and the published Pages
+website are publicly accessible.
 
 Do **not** double-click `index.html` or `explorer.html`: Chrome and other
 browsers normally block the local `fetch()` requests used by these pages.
