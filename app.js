@@ -259,14 +259,16 @@ function chooseLandmark(landmarkId) {
 }
 
 function selectReference(id) {
-  if (!currentDemo().references.some((ref) => ref.id === id)) return;
+  const reference = currentDemo().references.find((ref) => ref.id === id);
+  if (!reference) return;
+  const belongsToSelectedLandmark = state.selectedLandmark
+    && referencesForLandmark(state.selectedLandmark).some((ref) => ref.id === id);
   state.referenceId = id;
-  if (state.selectedLandmark && !referencesForLandmark(state.selectedLandmark).some((ref) => ref.id === id)) {
-    state.selectedLandmark = landmarkConceptId(currentReference().conceptId);
-  }
+  if (!belongsToSelectedLandmark) state.selectedLandmark = landmarkConceptId(reference.conceptId);
   if (!visibleReferences().some((ref) => ref.id === id)) resetFilters();
   renderExplorer();
   scrollActiveTraceIntoView();
+  scrollActiveMentionIntoView();
 }
 
 function renderTrace() {
@@ -489,6 +491,16 @@ function scrollActiveTraceIntoView() {
     if (!activeItem || !traceList) return;
     const delta = activeItem.getBoundingClientRect().top - traceList.getBoundingClientRect().top;
     traceList.scrollTop += delta - (traceList.clientHeight - activeItem.clientHeight) / 2;
+  });
+}
+
+function scrollActiveMentionIntoView() {
+  requestAnimationFrame(() => {
+    const activeItem = document.querySelector('.landmark-mentions button[aria-pressed="true"]');
+    const mentionList = document.querySelector("#landmark-mentions");
+    if (!activeItem || !mentionList) return;
+    const delta = activeItem.getBoundingClientRect().top - mentionList.getBoundingClientRect().top;
+    mentionList.scrollTop += delta - (mentionList.clientHeight - activeItem.clientHeight) / 2;
   });
 }
 
