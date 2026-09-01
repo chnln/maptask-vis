@@ -389,8 +389,11 @@ function renderDetail() {
   const differs = transcriptText.replace(/\s+/g, " ").trim() !== reference.expression.replace(/\s+/g, " ").trim()
     || anchors[0]?.speaker !== reference.speaker || anchors[0]?.utteranceId !== reference.utteranceId;
   const note = document.querySelector("#anchor-note");
-  note.hidden = !differs;
-  note.textContent = differs ? `Source alignment note: the transcript anchor reads “${transcriptText}” (first segment: ${anchors[0]?.speaker}, utt ${anchors[0]?.utteranceId}). The released annotation names “${reference.expression}” (${reference.speaker}, utt ${reference.utteranceId}). Both are shown as supplied; no source record has been silently corrected.` : "";
+  const correction = reference.displayCorrection;
+  note.hidden = !correction && !differs;
+  note.textContent = correction
+    ? `Display correction: ${correction.excludedTimedUnits.length} overlapping timed unit${correction.excludedTimedUnits.length === 1 ? "" : "s"} from the other speaker ${correction.excludedTimedUnits.length === 1 ? "was" : "were"} excluded from the released expression “${reference.releasedExpression}”. The interpretation annotation is unchanged.`
+    : differs ? `Source alignment note: the transcript anchor reads “${transcriptText}” (first segment: ${anchors[0]?.speaker}, utt ${anchors[0]?.utteranceId}). The released annotation names “${reference.expression}” (${reference.speaker}, utt ${reference.utteranceId}). Both are shown as supplied; no source record has been silently corrected.` : "";
 
   applyJudgmentStyle(document.querySelector("#gold-judgment"), reference.sins.gold);
   applyJudgmentStyle(document.querySelector("#text-judgment"), reference.sins.predictions.textOnly, reference.sins.gold);

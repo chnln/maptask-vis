@@ -75,6 +75,9 @@ assert.equal(new Set(corpus.demos.map((d) => d.mapId)).size, 16);
 assert.equal(corpus.demos.reduce((n, d) => n + d.references.length, 0), 13077);
 assert.equal(corpus.demos.filter((d) => d.humanVerified).reduce((n, d) => n + d.references.length, 0), 504);
 let checkedSpans = 0;
+let displayCorrections = 0;
+let excludedTimedUnits = 0;
+const correctedDialogues = new Set();
 for (const demo of corpus.demos) {
   for (const side of ["g", "f"]) assert.ok(existsSync(new URL(`static/images/maps/map${demo.mapId.slice(1)}${side}.png`, root)));
   const ids = new Set(demo.references.map((ref) => ref.id));
@@ -87,12 +90,27 @@ for (const demo of corpus.demos) {
   for (const ref of demo.references) {
     const anchors = demo.turns.flatMap((turn) => turn.spans.filter((span) => span.id === ref.id).map((span) => ({ text: turn.text.slice(span.start, span.end), speaker: turn.speaker, utteranceId: turn.utteranceId })));
     assert.equal(anchors.map((span) => span.text).join(" "), ref.expression, ref.id);
+    assert.ok(anchors.every((span) => span.speaker === ref.speaker), `${ref.id}: transcript anchors must belong to the reference speaker`);
     assert.equal(anchors[0].speaker, ref.speaker, ref.id);
     assert.equal(anchors[0].utteranceId, ref.utteranceId, ref.id);
+    if (ref.displayCorrection) {
+      displayCorrections++;
+      excludedTimedUnits += ref.displayCorrection.excludedTimedUnits.length;
+      correctedDialogues.add(demo.dialogueId);
+      assert.equal(ref.displayCorrection.type, "cross-speaker-timed-units");
+      assert.notEqual(ref.releasedExpression, ref.expression);
+      assert.ok(ref.displayCorrection.excludedTimedUnits.every((unit) => unit.speaker !== ref.speaker));
+    }
     assert.equal(ref.sins.gold, ref.annotations.gpt5.status === "aligned" ? "Yes" : "No");
     assert.equal(Boolean(ref.annotations.human), demo.humanVerified);
   }
 }
+assert.equal(displayCorrections, 468);
+assert.equal(excludedTimedUnits, 706);
+assert.equal(correctedDialogues.size, 105);
+const q1nc6Ref25 = corpus.demos.find((demo) => demo.dialogueId === "q1nc6").references.find((ref) => ref.id === "q1nc6.ref.25");
+assert.equal(q1nc6Ref25.expression, "green bay");
+assert.equal(q1nc6Ref25.releasedExpression, "green on the bay");
 
 // A dependency-free DOM stub checks rendering and control handlers, not browser layout.
 function attributes(source) {
@@ -262,11 +280,16 @@ for (let index = 0; index < corpus.demos.length; index++) {
   for (const ref of demo.references) assert.ok(transcript.includes(`data-reference-id="${ref.id}"`), `${ref.id} must be individually clickable`);
   for (const source of demo.humanVerified ? ["human", "gpt5"] : ["gpt5"]) {
     full.run(`state.source='${source}'; selectReference(currentDemo().references.at(-1).id)`);
-    assert.equal(full.nodes.get("anchor-note").hidden, true);
+    assert.equal(full.nodes.get("anchor-note").hidden, !demo.references.at(-1).displayCorrection);
     assert.match(full.nodes.get("map-pair").innerHTML, /src="data:image\/png;base64,/);
     assert.equal(full.nodes.get("gold-judgment").textContent, demo.references.at(-1).sins.gold);
   }
 }
+full.run("chooseDialogue(state.data.demos.findIndex((demo) => demo.dialogueId === 'q1nc6')); selectReference('q1nc6.ref.25')");
+assert.equal(full.nodes.get("detail-expression").textContent, "“green bay”");
+assert.equal(full.nodes.get("anchor-note").hidden, false);
+assert.match(full.nodes.get("anchor-note").textContent, /2 overlapping timed units/);
+assert.doesNotMatch(full.nodes.get("dialogue-excerpt").innerHTML, /class="excerpt-turn giver is-active"/);
 let clickedRegions = 0;
 let unmentionedRegions = 0;
 for (const demo of maps) {

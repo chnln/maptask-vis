@@ -103,6 +103,7 @@ const predictions = {
 
 function readTurns(dialogueId, references) {
   const units = readJson(resolve(timedUnitsDir, `${dialogueId}.json`)).timed_units;
+  const unitsById = Object.fromEntries(units.map((unit) => [unit.tu_id_unif, unit]));
   const extracted = byReferenceId(readJson(resolve(gmmtDir, `reference_expressions/${dialogueId}.reference_expressions.json`)).landmark_reference_expressions);
   const turns = [];
   const offsets = new Map();
@@ -121,7 +122,28 @@ function readTurns(dialogueId, references) {
   // Anchor by released timed-unit IDs, not the lossy nested <<...>> display format.
   for (const ref of references) {
     const spans = [];
-    for (const id of extracted[ref.id].timed_unit_ids) {
+    const releasedIds = extracted[ref.id].timed_unit_ids;
+    const releasedUnits = releasedIds.map((id) => {
+      const unit = unitsById[id];
+      if (!unit) throw new Error(`Missing timed unit ${id} for ${ref.id}`);
+      return unit;
+    });
+    const foreignUnits = releasedUnits.filter((unit) => unit.speaker !== ref.speaker);
+    const displayIds = releasedUnits.filter((unit) => unit.speaker === ref.speaker).map((unit) => unit.tu_id_unif);
+    if (foreignUnits.length) {
+      ref.releasedExpression = ref.expression;
+      ref.expression = displayIds.map((id) => unitsById[id].text.trim()).filter(Boolean).join(" ");
+      ref.displayCorrection = {
+        type: "cross-speaker-timed-units",
+        excludedTimedUnits: foreignUnits.map((unit) => ({
+          id: unit.tu_id_unif,
+          speaker: unit.speaker,
+          utteranceId: unit.utt_id,
+          text: unit.text,
+        })),
+      };
+    }
+    for (const id of displayIds) {
       const offset = offsets.get(id);
       if (!offset) throw new Error(`Missing timed unit ${id} for ${ref.id}`);
       if (offset.start === offset.end) continue;

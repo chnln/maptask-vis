@@ -143,12 +143,16 @@ The generator keeps the two kinds of model output distinct:
 - SINS predictions answer whether the two interpretations match—they do not
   predict the landmark IDs themselves.
 
-Transcript spans are anchored directly by the release's `timed_unit_ids` and
-the preprocessed, time-ordered HCRC timed units. Do not recover them from
+Transcript spans are anchored from the release's `timed_unit_ids` and the
+preprocessed, time-ordered HCRC timed units. As a temporary display-layer
+correction, the exporter excludes IDs assigned to a speaker other than the
+reference's declared speaker; it retains the released expression and excluded
+units in `displayCorrection` metadata. This does not modify the source release
+or reinterpret its annotations. Do not recover spans from
 `<<...>>` display markup: nested and crossing references lose their identities
 in that format. The exporter retains separate spans and per-line ID buttons,
-including overlapping references. All 13,077 span texts, starting speaker roles
-and utterance IDs are checked against released annotation records.
+including overlapping references. All 13,077 display spans and their speaker
+roles are checked, along with the known correction totals.
 
 The human-verified toggle is available only for the selected verified examples.
 The rebuild command does not download HCRC source material; map assets and
