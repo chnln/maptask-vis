@@ -66,6 +66,8 @@ for (const page of ["explorer.html", "explorer-preview.html"]) {
   assert.doesNotMatch(intro, /Complete corpus browser|Every dialogue\. Both perspectives\.|section-number/);
 }
 for (const page of ["index.html", "explorer.html", "preview.html", "explorer-preview.html"]) {
+  assert.match(read(page), /NLP Group, Department of Information and Computing Sciences, Utrecht University/, `${page}: correct affiliation`);
+  assert.doesNotMatch(read(page), /Institute for Language Sciences|ICS \/ NLP/, `${page}: no superseded affiliation`);
   assert.equal([...read(page).matchAll(/<dialog id="map-zoom-dialog"/g)].length, 1, page);
 }
 assert.equal(corpus.demos.length, 128);
