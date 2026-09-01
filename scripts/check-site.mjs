@@ -59,6 +59,12 @@ const corpusNavigation = corpusHeader.match(/<nav\b[\s\S]*?<\/nav>/)[0];
 assert.equal([...corpusNavigation.matchAll(/<a\b/g)].length, 1);
 assert.match(corpusNavigation, /Project home/);
 assert.doesNotMatch(corpusNavigation, /SINS findings|Datasets/);
+for (const page of ["explorer.html", "explorer-preview.html"]) {
+  const intro = read(page).match(/<section class="corpus-intro page-width">([\s\S]*?)<\/section>/)[1];
+  assert.match(intro, /<h1>Browse the Complete MapTask Corpus<\/h1>/);
+  assert.match(intro, /giver's and follower's perspectives/);
+  assert.doesNotMatch(intro, /Complete corpus browser|Every dialogue\. Both perspectives\.|section-number/);
+}
 for (const page of ["index.html", "explorer.html", "preview.html", "explorer-preview.html"]) {
   assert.equal([...read(page).matchAll(/<dialog id="map-zoom-dialog"/g)].length, 1, page);
 }
